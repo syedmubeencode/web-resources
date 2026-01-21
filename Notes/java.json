@@ -1,6 +1,6 @@
 {
   "Introduction": {
-    "title": "Java Introduction",
+    "title": "Java Introductionn",
     "body": "<p><b><span style='color:red;'>Q:What is Java?</span></b><br/><b> Ans : </b></p>"
   },
   "Theory": {
@@ -17,6 +17,6 @@
   },
   "Code Examples": {
     "title": "Java — Code Examples",
-    "body": "<p>Example: Stream API</p>"
+    "body": "<p>Example: Stream API Syed</p>"
   }
 }
