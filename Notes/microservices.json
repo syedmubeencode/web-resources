@@ -1,0 +1,23 @@
+{
+  "Introduction": {
+    "title": "Microservices — Introduction",
+    "body": "<p>Microservices split applications into independently deployable services.</p>"
+  },
+  "Theory": {
+    "title": "Microservices — Theory",
+    "body": "<p>Design principles include bounded context, eventual consistency, and decentralized data management.</p>"
+  },
+  "Practical": {
+    "title": "Microservices — Practical",
+    "body": "<p>Use APIs, containers, and service discovery tools to manage microservices.</p>"
+  },
+  "Interview Questions": {
+    "title": "Microservices — Interview Questions",
+    "body": "<p>Q: What is service discovery? <br/>A: It allows services to find each other dynamically.</p>"
+  },
+  "Code Examples": {
+    "title": "Microservices — Code Examples",
+    "body": "<p>Example: simple HTTP call using Java HttpClient</p>",
+    "code": "HttpClient client = HttpClient.newHttpClient();\nHttpRequest req = HttpRequest.newBuilder().uri(URI.create(\"http://service/health\")).build();\nclient.send(req, BodyHandlers.ofString());"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "Introduction": {
+    "title": "Git — Introduction",
+    "body": "<p>Git is a distributed version control system.</p>"
+  },
+  "Theory": {
+    "title": "Git — Theory",
+    "body": "<p>Branches, commits, merging, and rebasing are core Git concepts.</p>",
+    "code": "git checkout -b feature/awesome\ngit add .\ngit commit -m \"feat: add awesome feature\""
+  },
+  "Practical": {
+    "title": "Git — Practical",
+    "body": "<p>Use branching workflows and PRs.</p>"
+  },
+  "Interview Questions": {
+    "title": "Git — Interview Questions",
+    "body": "<p>Q: Difference between merge and rebase? <br/>A: Merge preserves history; rebase rewrites it.</p>"
+  },
+  "Code Examples": {
+    "title": "Git — Code Examples",
+    "body": "<p>Common commands</p>",
+    "code": "git stash save \"WIP\"\ngit pull --rebase"
+  }
+}

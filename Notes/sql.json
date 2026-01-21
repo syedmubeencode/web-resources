@@ -1,0 +1,24 @@
+{
+  "Introduction": {
+    "title": "SQL — Introduction",
+    "body": "<p>SQL manages relational databases using structured queries.</p>"
+  },
+  "Theory": {
+    "title": "SQL — Theory",
+    "body": "<p>Core concepts: normalization, indexes, transactions, ACID properties.</p>",
+    "code": "SELECT id, name FROM users WHERE active = 1 ORDER BY name;"
+  },
+  "Practical": {
+    "title": "SQL — Practical",
+    "body": "<p>Practice joins, subqueries, and query optimization.</p>"
+  },
+  "Interview Questions": {
+    "title": "SQL — Interview Questions",
+    "body": "<p>Q: What is normalization? <br/>A: Organizing data to reduce redundancy.</p>"
+  },
+  "Code Examples": {
+    "title": "SQL — Code Examples",
+    "body": "<p>Example: Insert statement</p>",
+    "code": "INSERT INTO products (name, price) VALUES ('Notebook', 199.99);"
+  }
+}
