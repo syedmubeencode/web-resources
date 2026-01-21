@@ -5,7 +5,7 @@
   },
  "Theory": {
     "title": "Java Theory",
-    "body": "<p> <button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/jdk_test.m4a'/> Java is an object-oriented programming language designed for flexibility and performance. <button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/jdk_test.m4a'/></p>"
+    "body": "<p> <button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/jdk_test.m4a'></audio> Java is an object-oriented programming language designed for flexibility and performance. <button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/jdk_test.m4a'></audio></p>"
   },
   "Practical": {
     "title": "Java — Practical",
