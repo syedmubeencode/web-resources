@@ -1,0 +1,5 @@
+{
+  "title": "Spring Boot — Theory",
+    "body": "<p>Spring Boot auto-configures components and reduces boilerplate.</p>",
+    "code": "@SpringBootApplication\npublic class App {\n  public static void main(String[] args){\n    SpringApplication.run(App.class, args);\n  }\n}"
+}

@@ -1,0 +1,4 @@
+{
+  "title": "Spring Boot — Interview Questions",
+    "body": "<p>Q: What is auto-configuration? <br/> A: It configures your Spring application based on jar dependencies.</p>"
+}
