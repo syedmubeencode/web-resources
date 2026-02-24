@@ -5,9 +5,7 @@
 • <b>Object-Oriented:</b> Everything is an object, making the code modular and reusable.
 • <b>Platform Independent:</b> Write Once, Run Anywhere (WORA) via bytecode.
 • <b>Robust:</b> Strong memory management and automatic garbage collection.
-• <b>Secure:</b> Runs inside a virtual machine (sandbox) and lacks explicit pointers.
-
-<b><span style='color:red;'>Q: What is the difference between an Abstract Class and an Interface?</span></b>
+• <b>Secure:</b> Runs inside a virtual machine (sandbox) and lacks explicit pointers.<b><span style='color:red;'>Q: What is the difference between an Abstract Class and an Interface?</span></b>
 <b>Ans:</b> Both are used for abstraction, but they serve different architectural purposes.
 • <b>Abstract Class:</b> Can have both abstract (no body) and concrete (with body) methods. It supports state via instance variables.
 • <b>Interface:</b> Primarily used for defining a contract. Since Java 8, it can have default and static methods, but it cannot store state (variables are constants).
