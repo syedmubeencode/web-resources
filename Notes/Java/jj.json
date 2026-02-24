@@ -1,26 +1,4 @@
 {
   "title": "Syed",
-   ​"body": "<p><b><span style='color:red;'>Q: What are the main features of Java?</span></b>
-<b>Ans:</b> Java is widely used due to its robust features that simplify development and deployment.
-• <b>Object-Oriented:</b> Everything is an object, making the code modular and reusable.
-• <b>Platform Independent:</b> Write Once, Run Anywhere (WORA) via bytecode.
-• <b>Robust:</b> Strong memory management and automatic garbage collection.
-• <b>Secure:</b> Runs inside a virtual machine (sandbox) and lacks explicit pointers.<b><span style='color:red;'>Q: What is the difference between an Abstract Class and an Interface?</span></b>
-<b>Ans:</b> Both are used for abstraction, but they serve different architectural purposes.
-• <b>Abstract Class:</b> Can have both abstract (no body) and concrete (with body) methods. It supports state via instance variables.
-• <b>Interface:</b> Primarily used for defining a contract. Since Java 8, it can have default and static methods, but it cannot store state (variables are constants).
-• <b>Inheritance:</b> A class can extend only one abstract class but can implement multiple interfaces.
-
-<b><span style='color:red;'>Q: What is the 'static' keyword in Java?</span></b>
-<b>Ans:</b> The static keyword is used for memory management and indicates that a member belongs to the class itself rather than an instance.
-• <b>Static Variables:</b> Shared among all instances of the class; initialized only once at the start.
-• <b>Static Methods:</b> Can be called without creating an object; they can only access other static data.
-• <b>Static Block:</b> Used to initialize static variables; it executes when the class is loaded into memory.
-
-<b><span style='color:red;'>Q: Why is the String object immutable in Java?</span></b>
-<b>Ans:</b> String immutability means once a String object is created, its value cannot be changed.
-• <b>String Pool:</b> To save memory, Java reuses identical String literals. If Strings were mutable, changing one would affect all others pointing to it.
-• <b>Security:</b> Strings are used for sensitive data (usernames, passwords, URLs); immutability prevents these from being altered unexpectedly.
-• <b>Thread Safety:</b> Immutable objects are inherently thread-safe, as they cannot be modified by multiple threads simultaneously.
-"
+   ​"body": "<p><b><span style='color:red;'>Q: What are the main features of Java?</span></b><b>Ans:</b> Java is widely used due to its robust features that simplify development and deployment.• <b>Object-Oriented:</b> Everything is an object, making the code modular and reusable.• <b>Platform Independent:</b> Write Once, Run Anywhere (WORA) via bytecode.• <b>Robust:</b> Strong memory management and automatic garbage collection.• <b>Secure:</b> Runs inside a virtual machine (sandbox) and lacks explicit pointers.<b><span style='color:red;'>Q: What is the difference between an Abstract Class and an Interface?</span></b><b>Ans:</b> Both are used for abstraction, but they serve different architectural purposes.• <b>Abstract Class:</b> Can have both abstract (no body) and concrete (with body) methods. It supports state via instance variables.• <b>Interface:</b> Primarily used for defining a contract. Since Java 8, it can have default and static methods, but it cannot store state (variables are constants).• <b>Inheritance:</b> A class can extend only one abstract class but can implement multiple interfaces.<b><span style='color:red;'>Q: What is the 'static' keyword in Java?</span></b><b>Ans:</b> The static keyword is used for memory management and indicates that a member belongs to the class itself rather than an instance.• <b>Static Variables:</b> Shared among all instances of the class; initialized only once at the start.• <b>Static Methods:</b> Can be called without creating an object; they can only access other static data.• <b>Static Block:</b> Used to initialize static variables; it executes when the class is loaded into memory.<b><span style='color:red;'>Q: Why is the String object immutable in Java?</span></b><b>Ans:</b> String immutability means once a String object is created, its value cannot be changed.• <b>String Pool:</b> To save memory, Java reuses identical String literals. If Strings were mutable, changing one would affect all others pointing to it.• <b>Security:</b> Strings are used for sensitive data (usernames, passwords, URLs); immutability prevents these from being altered unexpectedly.• <b>Thread Safety:</b> Immutable objects are inherently thread-safe, as they cannot be modified by multiple threads simultaneously."
 }
