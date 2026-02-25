@@ -10,7 +10,7 @@
   },
   "Practical": {
     "title": "SQL — Practical",
-    "body": "<p>Practice joins, subqueries, and query optimization.</p>"
+    "body": "<p><br/><b>Ans</b><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Java/Threads.m4a'></audio><br/>• A thread is a lightweight subprocess, the smallest unit of processing. Multithreading allows concurrent execution of two or more parts of a program.<br/><b>Ans</b><br/>• <span style='color:#007bff;font-weight:bold'>JVM</span> acts as a run-time engine to run Java applications. It loads, verifies, and executes code while providing a runtime environment.<br/><b>Ans</b><br/>• The four pillars are <span style='text-decoration:underline'>Inheritance</span>, <span style='text-decoration:underline'>Polymorphism</span>, <span style='text-decoration:underline'>Encapsulation</span>, and <span style='text-decoration:underline'>Abstraction</span>.<br/><b>Ans</b><br/>• String is <span style='color:#dc3545;font-weight:bold'>immutable</span> (cannot be changed), whereas StringBuilder is mutable and more efficient for frequent modifications.<br/><b>Ans</b><br/>• Interfaces support <span style='font-style:italic'>multiple inheritance</span> and have only abstract methods (pre-Java 8), while abstract classes can have constructors and concrete methods.<br/><b>Ans</b><br/>• It is a mechanism to handle <span style='background-color:#fff3cd'>runtime errors</span> using try, catch, finally, throw, and throws keywords to maintain normal application flow.</p>"
   },
   "Interview Questions": {
     "title": "SQL — Interview Questions",
