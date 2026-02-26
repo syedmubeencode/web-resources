@@ -1,4 +1,8 @@
 {
   "body": "<p>Spring Boot auto-configures components and reduces boilerplate.</p>",
-  "code": "@SpringBootApplication\npublic class App {\n  public static void main(String[] args){\n    SpringApplication.run(App.class, args);\n  }\n}"
+  "code": "@SpringBootApplication\npublic class App {\n  public static void main(String[] args){\n    SpringApplication.run(App.class, args);\n  }\n}",
+  "body1": "<p>The @RestController annotation simplifies the creation of RESTful web services by combining @Controller and @ResponseBody.</p>",
+  "code1": "@RestController\n@RequestMapping(\"/api\")\npublic class HelloController {\n  @GetMapping(\"/greet\")\n  public String sayHello() {\n    return \"Hello, World!\";\n  }\n}",
+  "body2": "<p>Spring Data JPA allows you to create repositories by simply extending the JpaRepository interface, providing CRUD operations without manual implementation.</p>",
+  "code2": "@Repository\npublic interface UserRepository extends JpaRepository<User, Long> {\n  List<User> findByLastName(String lastName);\n}"
 }
