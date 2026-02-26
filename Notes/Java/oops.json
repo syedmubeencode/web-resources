@@ -1,8 +1,10 @@
 {
-  "body": "<p>Spring Boot auto-configures components and reduces boilerplate.</p>",
-  "code": "@SpringBootApplication\npublic class App {\n  public static void main(String[] args){\n    SpringApplication.run(App.class, args);\n  }\n}",
-  "body1": "<p>The @RestController annotation simplifies the creation of RESTful web services by combining @Controller and @ResponseBody.</p>",
-  "code1": "@RestController\n@RequestMapping(\"/api\")\npublic class HelloController {\n  @GetMapping(\"/greet\")\n  public String sayHello() {\n    return \"Hello, World!\";\n  }\n}",
-  "body2": "<p>Spring Data JPA allows you to create repositories by simply extending the JpaRepository interface, providing CRUD operations without manual implementation.</p>",
-  "code2": "@Repository\npublic interface UserRepository extends JpaRepository<User, Long> {\n  List<User> findByLastName(String lastName);\n}"
+  "body": "<h3>1. Encapsulation</h3><p style='color: #2e7d32;'>Bundling data (variables) and methods into a single unit and restricting direct access to some components using <b>private</b> modifiers.</p>",
+  "code": "public class Account {\n  private double balance;\n  public void deposit(double amount) {\n    if(amount > 0) balance += amount;\n  }\n  public double getBalance() { return balance; }\n}",
+  "body1": "<h3>2. Inheritance</h3><p style='color: #1565c0;'>Mechanism where one class acquires the properties and behaviors of a parent class using the <b>extends</b> keyword.</p>",
+  "code": "class Animal {\n  void eat() { System.out.println(\"Eating...\"); }\n}\nclass Dog extends Animal {\n  void bark() { System.out.println(\"Barking...\"); }\n}",
+  "body2": "<h3>3. Polymorphism</h3><p style='color: #d84315;'>The ability of an object to take on many forms. Most commonly seen as <b>Method Overriding</b> where a subclass provides a specific implementation.</p>",
+  "code": "@Override\npublic void makeSound() {\n  System.out.println(\"Bark\");\n}\n// Parent reference, child object\nAnimal myDog = new Dog();",
+  "body3": "<h3>4. Abstraction</h3><p style='color: #6a1b9a;'>Hiding complex implementation details and showing only the essential features of the object using <b>abstract classes</b> or <b>interfaces</b>.</p>",
+  "code": "abstract class Shape {\n  abstract void draw();\n}\nclass Circle extends Shape {\n  void draw() { System.out.println(\"Drawing Circle\"); }\n}"
 }
