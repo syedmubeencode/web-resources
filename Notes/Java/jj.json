@@ -1,50 +1,50 @@
 [
   {
-    "body": "<h3>1. Java Threads</h3><p style='color: #2e7d32;'>A <b>thread</b> is a lightweight subprocess, the smallest unit of processing, allowing concurrent execution of program parts.</p>",
-    "code": "class MyThread extends Thread {\n  public void run() {\n    System.out.println(\"Thread is running...\");\n  }\n}\nMyThread t1 = new MyThread();\nt1.start();"
+    "body": "<h3>1. Thread in Java</h3><p style='color: #dc3545;'>A thread is a lightweight subprocess, the smallest unit of processing. Multithreading allows concurrent execution.</p><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Java/Threads.m4a'></audio>",
+    "code": "class MyThread extends Thread {\n  public void run() {\n    System.out.println(\"Thread is running...\");\n  }\n}\n// Usage:\nMyThread t1 = new MyThread();\nt1.start();"
   },
   {
-    "body": "<h3>2. Java Virtual Machine (JVM)</h3><p style='color: #1565c0;'>The <b>JVM</b> acts as a run-time engine that loads, verifies, and executes bytecode while providing a runtime environment.</p>",
-    "code": "// JVM executes the compiled .class file\n// Command: java MyProgram\npublic static void main(String[] args) {\n  System.out.println(\"Running in JVM\");\n}"
+    "body": "<h3>2. JVM (Java Virtual Machine)</h3><p style='color: #1565c0;'>Acts as a run-time engine to run Java applications. It loads, verifies, and executes bytecode.</p>",
+    "code": "// JVM Workflow:\n// 1. Class Loader\n// 2. Bytecode Verifier\n// 3. Interpreter / JIT Compiler"
   },
   {
-    "body": "<h3>3. Pillars of OOPs</h3><p style='color: #d84315;'>The four pillars are <b>Inheritance, Polymorphism, Encapsulation, and Abstraction</b>, which form the basis of object-oriented programming.</p>",
-    "code": "// Example: Encapsulation\nprivate String data;\npublic void setData(String d) { this.data = d; }\npublic String getData() { return data; }"
+    "body": "<h3>3. Four Pillars of OOPs</h3><p style='color: #2e7d32;'>The foundation of Java: <b>Inheritance, Polymorphism, Encapsulation, and Abstraction</b>.</p>",
+    "code": "// 1. Encapsulation: private variables\n// 2. Inheritance: extends\n// 3. Polymorphism: @Override\n// 4. Abstraction: abstract class/interface"
   },
   {
-    "body": "<h3>4. String vs StringBuilder</h3><p style='color: #6a1b9a;'><b>String</b> is immutable (cannot be changed), whereas <b>StringBuilder</b> is mutable and efficient for frequent modifications.</p>",
-    "code": "String s = \"Java\"; \ns = s + \" 2026\"; // Creates new object\n\nStringBuilder sb = new StringBuilder(\"Java\");\nsb.append(\" 2026\"); // Modifies same object"
+    "body": "<h3>4. String vs StringBuilder</h3><p style='color: #d84315;'><b>String</b> is immutable (constant), while <b>StringBuilder</b> is mutable and efficient for modifications.</p>",
+    "code": "String s = \"Hello\";\ns = s + \" World\"; // Creates new object\n\nStringBuilder sb = new StringBuilder(\"Hello\");\nsb.append(\" World\"); // Modifies existing object"
   },
   {
-    "body": "<h3>5. Interface vs Abstract Class</h3><p style='color: #2e7d32;'><b>Interfaces</b> support multiple inheritance and abstract methods, while <b>abstract classes</b> can have constructors and concrete methods.</p>",
-    "code": "interface Drawable { void draw(); }\n\nabstract class Shape {\n  abstract void area();\n  void msg() { System.out.println(\"Shape msg\"); }\n}"
+    "body": "<h3>5. Interface vs Abstract Class</h3><p style='color: #6a1b9a;'>Interfaces support <b>multiple inheritance</b>. Abstract classes can have constructors and concrete methods.</p>",
+    "code": "interface Drawable { void draw(); }\n\nabstract class Shape {\n  int color;\n  abstract void area();\n}"
   },
   {
-    "body": "<h3>6. Exception Handling</h3><p style='color: #1565c0;'>A mechanism to handle <b>runtime errors</b> using try, catch, finally, throw, and throws to maintain application flow.</p>",
-    "code": "try {\n  int data = 50 / 0;\n} catch (ArithmeticException e) {\n  System.out.println(e);\n} finally {\n  System.out.println(\"Always executed\");\n}"
+    "body": "<h3>6. Exception Handling</h3><p style='color: #dc3545;'>A mechanism to handle <b>runtime errors</b> using try-catch blocks to maintain flow.</p>",
+    "code": "try {\n  int data = 50/0;\n} catch(ArithmeticException e) {\n  System.out.println(e);\n} finally {\n  System.out.println(\"Executed anyway\");\n}"
   },
   {
-    "body": "<h3>7. JDK vs JRE vs JVM</h3><p style='color: #d84315;'><b>JDK</b> is the dev kit (tools + JRE), <b>JRE</b> provides libraries to run apps, and <b>JVM</b> is the engine that executes bytecode.</p>",
-    "code": "// JDK = JRE + Development Tools\n// JRE = JVM + Library Classes"
+    "body": "<h3>7. JDK vs JRE vs JVM</h3><p style='color: #1565c0;'><b>JDK</b> (Dev Kit) = JRE + Development Tools; <b>JRE</b> (Runtime) = JVM + Libraries.</p>",
+    "code": "// Hierarchy:\n// [JDK [JRE [JVM]]]"
   },
   {
-    "body": "<h3>8. Static Keyword</h3><p style='color: #6a1b9a;'>The <b>static</b> keyword means a member belongs to the class itself rather than an instance of the class.</p>",
-    "code": "class Student {\n  static String college = \"ITS\";\n  static void change() { college = \"BBDIT\"; }\n}"
+    "body": "<h3>8. Static Keyword</h3><p style='color: #2e7d32;'>The <b>static</b> keyword belongs to the class rather than instances of the class.</p>",
+    "code": "public class Counter {\n  static int count = 0; // Shared by all objects\n  static void display() { System.out.println(\"Static Method\"); }\n}"
   },
   {
-    "body": "<h3>9. Constructors</h3><p style='color: #2e7d32;'>A <b>constructor</b> is a special method used to initialize objects; it has no return type and shares the class name.</p>",
-    "code": "class Bike {\n  Bike() { \n    System.out.println(\"Bike created\"); \n  }\n}"
+    "body": "<h3>9. Constructor</h3><p style='color: #d84315;'>A special method used to <b>initialize objects</b>; it has no return type and shares the class name.</p>",
+    "code": "class Student {\n  String name;\n  Student(String n) { // Constructor\n    this.name = n;\n  }\n}"
   },
   {
-    "body": "<h3>10. Final Keyword</h3><p style='color: #1565c0;'>The <b>final</b> keyword restricts users: variables become constants, methods cannot be overridden, and classes cannot be inherited.</p>",
-    "code": "final int SPEED_LIMIT = 90;\nfinal void run() { /* cannot be overridden */ }\nfinal class A { /* cannot be inherited */ }"
+    "body": "<h3>10. Final Keyword</h3><p style='color: #6a1b9a;'>Used to restrict the user: <b>final variables</b> cannot be changed, and <b>final classes</b> cannot be inherited.</p>",
+    "code": "final int SPEED_LIMIT = 90;\nfinal class Vehicle { } // Cannot be extended"
   },
   {
-    "body": "<h3>11. Array vs ArrayList</h3><p style='color: #d84315;'><b>Arrays</b> are fixed in size, whereas <b>ArrayList</b> is a dynamic collection that grows or shrinks automatically.</p>",
-    "code": "int[] arr = new int[5]; // Fixed size\n\nArrayList<String> list = new ArrayList<>();\nlist.add(\"Java\"); // Dynamic size"
+    "body": "<h3>11. Array vs ArrayList</h3><p style='color: #dc3545;'>Arrays are <b>fixed in size</b>, whereas ArrayList is a <b>dynamic collection</b>.</p>",
+    "code": "int[] arr = new int[10];\n\nArrayList<String> list = new ArrayList<>();\nlist.add(\"Java\");\nlist.remove(0);"
   },
   {
-    "body": "<h3>12. Overloading vs Overriding</h3><p style='color: #6a1b9a;'><b>Overloading</b> happens within the same class (different parameters), while <b>Overriding</b> occurs in a subclass (same signature).</p>",
-    "code": "// Overloading: add(int,int) vs add(int,int,int)\n// Overriding: @Override public void run() { ... }"
+    "body": "<h3>12. Method Overloading vs Overriding</h3><p style='color: #1565c0;'><b>Overloading</b> is same name, different parameters. <b>Overriding</b> is subclass providing specific logic.</p>",
+    "code": "// Overloading\nvoid sum(int a, int b) { }\nvoid sum(int a, int b, int c) { }\n\n// Overriding\n@Override\nvoid move() { System.out.println(\"Dog runs\"); }"
   }
 ]
