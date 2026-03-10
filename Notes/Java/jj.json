@@ -38,5 +38,25 @@
   {
     "body": "<h3>Java 21 feature: String Templates (The Fill-in-the-Blanks)</h3><p style='color: #6a1b9a;'>Like a Mad Libs book. Instead of messy '+' signs to glue strings together, you just write a normal sentence and fill in the blanks using the \\{name} syntax.</p>",
     "code": "String name = \"Syed\";\nint age = 26;\n\n// Note: This was a preview feature in Java 21\nString message = STR.\"Hello \\{name}, you are \\{age} years old!\";\nSystem.out.println(message);"
+  },
+  {
+    "body": "<h3>Java 21 feature: Virtual Threads (The Tiny Army)</h3><p style='color: #dc3545;'>Instead of a few heavy, expensive robots, you have 10,000 tiny, lightweight sprites. If one sprite waits for paint to dry, it disappears and lets another take its place instantly.</p>",
+    "code": "// Creating 10,000 Virtual Threads effortlessly\ntry (var executor = Executors.newVirtualThreadPerTaskExecutor()) {\n    IntStream.range(0, 10000).forEach(i -> {\n        executor.submit(() -> {\n            Thread.sleep(Duration.ofSeconds(1));\n            return i;\n        });\n    });\n}"
+  },
+  {
+    "body": "<h3>Java 21 feature: Record Patterns (The Smart Sorter)</h3><p style='color: #1565c0;'>You don't have to manually 'open the box' to take out values. You can just say, 'If this is a Point box, give me the numbers inside it right now!'</p>",
+    "code": "record Point(int x, int y) {}\n\npublic void printSum(Object obj) {\n    if (obj instanceof Point(int x, int y)) {\n        System.out.println(\"Sum is: \" + (x + y));\n    }\n}"
+  },
+  {
+    "body": "<h3>Java 21 feature: Pattern Matching for Switch</h3><p style='color: #2e7d32;'>The 'Super Scanner.' Instead of just checking for numbers or words, the switch can check for the <b>type</b> of object (Truck, Doll, Broken Toy) and handle them gracefully.</p>",
+    "code": "String formatted = switch (obj) {\n    case Integer i -> String.format(\"int %d\", i);\n    case Long l    -> String.format(\"long %d\", l);\n    case Double d  -> String.format(\"double %f\", d);\n    case String s  -> String.format(\"String %s\", s);\n    default        -> obj.toString();\n};"
+  },
+  {
+    "body": "<h3>Java 21 feature: Sequenced Collections (The Neat Line)</h3><p style='color: #d84315;'>Like putting all your toys on a string. Now there are dedicated buttons to grab the first toy, the last toy, or flip the whole line backwards without extra math.</p>",
+    "code": "LinkedHashSet<String> list = new LinkedHashSet<>();\nlist.addFirst(\"First Toy\");\nlist.addLast(\"Last Toy\");\n\nString first = list.getFirst();\nString last = list.getLast();\nvar reversed = list.reversed();"
+  },
+  {
+    "body": "<h3>Java 21 feature: String Templates (The Fill-in-the-Blanks)</h3><p style='color: #6a1b9a;'>Like a Mad Libs book. Instead of messy '+' signs to glue strings together, you just write a normal sentence and fill in the blanks using the \\{name} syntax.</p>",
+    "code": "String name = \"Syed\";\nint age = 26;\n\n// Note: This was a preview feature in Java 21\nString message = STR.\"Hello \\{name}, you are \\{age} years old!\";\nSystem.out.println(message);"
   }
 ]
