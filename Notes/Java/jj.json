@@ -58,5 +58,29 @@
   {
     "body": "<h3>Java 21 feature: String Templates (The Fill-in-the-Blanks)</h3><p style='color: #6a1b9a;'>Like a Mad Libs book. Instead of messy '+' signs to glue strings together, you just write a normal sentence and fill in the blanks using the \\{name} syntax.</p>",
     "code": "String name = \"Syed\";\nint age = 26;\n\n// Note: This was a preview feature in Java 21\nString message = STR.\"Hello \\{name}, you are \\{age} years old!\";\nSystem.out.println(message);"
+  },
+  {
+    "body": "<h3>Java Multi-threading: The Helper</h3><p style='color: #dc3545;'>A <b>Thread</b> is like one friend helping you. <b>Multi-threading</b> is having a whole team of friends working together to finish tasks faster.</p>",
+    "code": "Thread friend1 = new Thread(() -> System.out.println(\"Friend 1 is helping!\"));\nThread friend2 = new Thread(() -> System.out.println(\"Friend 2 is helping!\"));\n\nfriend1.start();\nfriend2.start();"
+  },
+  {
+    "body": "<h3>Java Multi-threading: Concurrency vs. Parallelism</h3><p style='color: #1565c0;'><b>Concurrency (The Busy Chef):</b> One chef switching quickly between tasks on one stove. <b>Parallelism (Many Chefs):</b> Multiple chefs cooking on multiple stoves at the exact same second.</p>",
+    "code": "// Concurrency is often achieved via Time Slicing on a single CPU core.\n// Parallelism is achieved when multiple threads run on multiple CPU cores simultaneously."
+  },
+  {
+    "body": "<h3>Java Multi-threading: Shared Resources (The Cookie Jar)</h3><p style='color: #2e7d32;'>If two friends reach for the last cookie at once, they might 'bump heads.' In Java, this is a <b>Race Condition</b> where threads mess up the math by changing the same number simultaneously.</p>",
+    "code": "class CookieJar {\n    int cookies = 10;\n    void takeCookie() {\n        cookies--; // Two threads doing this at once cause a Race Condition\n    }\n}"
+  },
+  {
+    "body": "<h3>Java Multi-threading: Synchronized (The Bathroom Key)</h3><p style='color: #d84315;'>To fix the cookie jar problem, use <b>Synchronization</b>. It's like a gas station bathroom key: only one person can hold the key (the <b>Lock</b>) and use the room at a time.</p>",
+    "code": "class CookieJar {\n    private int cookies = 10;\n    // Only one thread can enter this 'room' at a time\n    public synchronized void takeSafeCookie() {\n        if(cookies > 0) cookies--;\n    }\n}"
+  },
+  {
+    "body": "<h3>Java Multi-threading: Deadlock (The Grumpy Stand-off)</h3><p style='color: #6a1b9a;'>Friend A has the <b>Milk</b> but needs <b>Cereal</b>. Friend B has the <b>Cereal</b> but needs <b>Milk</b>. Neither will share, so they sit staring at each other forever, and the program 'freezes.'</p>",
+    "code": "// Thread 1 locks Milk, waits for Cereal\n// Thread 2 locks Cereal, waits for Milk\nsynchronized(milk) {\n    synchronized(cereal) { \n        System.out.println(\"Eating!\"); \n    }\n}"
+  },
+  {
+    "body": "<h3>Java Multi-threading: ExecutorService (The Manager)</h3><p style='color: #dc3545;'>Instead of calling friends individually, you hire a <b>Manager</b>. You give them a list of 100 tasks, and they hand them out to a <b>Thread Pool</b> (a group of friends sitting on a bench).</p>",
+    "code": "ExecutorService manager = Executors.newFixedThreadPool(5);\n\nfor (int i = 0; i < 100; i++) {\n    manager.execute(() -> System.out.println(\"Task done by friend on the bench\"));\n}\nmanager.shutdown();"
   }
 ]
