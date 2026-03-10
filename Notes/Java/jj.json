@@ -1,50 +1,38 @@
 [
   {
-    "body": "<h3>1. Thread in Java</h3><p style='color: #dc3545;'>A thread is a lightweight subprocess, the smallest unit of processing. Multithreading allows concurrent execution.</p><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Java/Threads.m4a'></audio>",
-    "code": "class MyThread extends Thread {\n  public void run() {\n    System.out.println(\"Thread is running...\");\n  }\n}\n// Usage:\nMyThread t1 = new MyThread();\nt1.start();"
+    "body": "<h3>1. Reverse a String</h3><p style='color: #dc3545;'>Iterate through the string from the last character to the first using a loop and append each to a new string or StringBuilder.</p><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Java/Reverse_string_without_builtIn_method.m4a'></audio>",
+    "code": "String str = \"Java\";\nString reversed = \"\";\nfor (int i = str.length() - 1; i >= 0; i--) {\n    reversed += str.charAt(i);\n}\nSystem.out.println(reversed);"
   },
   {
-    "body": "<h3>2. JVM (Java Virtual Machine)</h3><p style='color: #1565c0;'>Acts as a run-time engine to run Java applications. It loads, verifies, and executes bytecode.</p>",
-    "code": "// JVM Workflow:\n// 1. Class Loader\n// 2. Bytecode Verifier\n// 3. Interpreter / JIT Compiler"
+    "body": "<h3>2. Prime Number Check</h3><p style='color: #1565c0;'>A number is prime if it is greater than 1 and has no divisors other than 1 and itself. Use a loop up to the square root.</p><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Java/PrimeNumberCheck.m4a'></audio>",
+    "code": "public boolean isPrime(int n) {\n    if (n <= 1) return false;\n    for (int i = 2; i <= Math.sqrt(n); i++) {\n        if (n % i == 0) return false;\n    }\n    return true;\n}"
   },
   {
-    "body": "<h3>3. Four Pillars of OOPs</h3><p style='color: #2e7d32;'>The foundation of Java: <b>Inheritance, Polymorphism, Encapsulation, and Abstraction</b>.</p>",
-    "code": "// 1. Encapsulation: private variables\n// 2. Inheritance: extends\n// 3. Polymorphism: @Override\n// 4. Abstraction: abstract class/interface"
+    "body": "<h3>3. Factorial using Recursion</h3><p style='color: #d84315;'>Define a function that returns 1 if n is 0, otherwise returns n * function(n-1).</p><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Java/FactorialOfANumberUsingRecursion.m4a'></audio>",
+    "code": "int factorial(int n) {\n    if (n == 0) return 1;\n    return n * factorial(n - 1);\n}"
   },
   {
-    "body": "<h3>4. String vs StringBuilder</h3><p style='color: #d84315;'><b>String</b> is immutable (constant), while <b>StringBuilder</b> is mutable and efficient for modifications.</p>",
-    "code": "String s = \"Hello\";\ns = s + \" World\"; // Creates new object\n\nStringBuilder sb = new StringBuilder(\"Hello\");\nsb.append(\" World\"); // Modifies existing object"
+    "body": "<h3>4. Swap Two Numbers</h3><p style='color: #2e7d32;'>Swap variables without using a temporary third variable using addition and subtraction logic.</p><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Java/SwapNumberWithoutThirdVariable.m4a'></audio>",
+    "code": "a = a + b;\nb = a - b;\na = a - b;"
   },
   {
-    "body": "<h3>5. Interface vs Abstract Class</h3><p style='color: #6a1b9a;'>Interfaces support <b>multiple inheritance</b>. Abstract classes can have constructors and concrete methods.</p>",
-    "code": "interface Drawable { void draw(); }\n\nabstract class Shape {\n  int color;\n  abstract void area();\n}"
+    "body": "<h3>5. Find Duplicates in Array</h3><p style='color: #6a1b9a;'>Use a HashSet to track seen elements; if an element is already in the set, it is a duplicate.</p><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Java/FindDublicatesInArray.m4a'></audio>",
+    "code": "HashSet<Integer> set = new HashSet<>();\nfor (int num : array) {\n    if (!set.add(num)) {\n        System.out.println(\"Duplicate: \" + num);\n    }\n}"
   },
   {
-    "body": "<h3>6. Exception Handling</h3><p style='color: #dc3545;'>A mechanism to handle <b>runtime errors</b> using try-catch blocks to maintain flow.</p>",
-    "code": "try {\n  int data = 50/0;\n} catch(ArithmeticException e) {\n  System.out.println(e);\n} finally {\n  System.out.println(\"Executed anyway\");\n}"
+    "body": "<h3>6. Count Character Occurrences</h3><p style='color: #dc3545;'>Use a HashMap where the key is the character and the value is the count, incrementing as you traverse.</p><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Java/CountOccurenceOfEachCharsInAString.m4a'></audio>",
+    "code": "Map<Character, Integer> map = new HashMap<>();\nfor (char c : str.toCharArray()) {\n    map.put(c, map.getOrDefault(c, 0) + 1);\n}"
   },
   {
-    "body": "<h3>7. JDK vs JRE vs JVM</h3><p style='color: #1565c0;'><b>JDK</b> (Dev Kit) = JRE + Development Tools; <b>JRE</b> (Runtime) = JVM + Libraries.</p>",
-    "code": "// Hierarchy:\n// [JDK [JRE [JVM]]]"
+    "body": "<h3>7. Sort Array (Bubble Sort)</h3><p style='color: #1565c0;'>Implement a sorting algorithm like Bubble Sort using nested loops to compare and swap elements.</p><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Java/SortArrayWithoutArraySortMethod.m4a'></audio>",
+    "code": "for (int i = 0; i < arr.length; i++) {\n    for (int j = i + 1; j < arr.length; j++) {\n        if (arr[i] > arr[j]) {\n            int temp = arr[i];\n            arr[i] = arr[j];\n            arr[j] = temp;\n        }\n    }\n}"
   },
   {
-    "body": "<h3>8. Static Keyword</h3><p style='color: #2e7d32;'>The <b>static</b> keyword belongs to the class rather than instances of the class.</p>",
-    "code": "public class Counter {\n  static int count = 0; // Shared by all objects\n  static void display() { System.out.println(\"Static Method\"); }\n}"
+    "body": "<h3>8. Count Vowels & Consonants</h3><p style='color: #2e7d32;'>Iterate through the string, checking if each character is a vowel (a, e, i, o, u) or an alphabetic consonant.</p><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Java/CountVowelsAndConsonants.m4a'></audio>",
+    "code": "int v = 0, c = 0;\nString vowels = \"aeiouAEIOU\";\nfor (char ch : str.toCharArray()) {\n    if (Character.isLetter(ch)) {\n        if (vowels.indexOf(ch) != -1) v++;\n        else c++;\n    }\n}"
   },
   {
-    "body": "<h3>9. Constructor</h3><p style='color: #d84315;'>A special method used to <b>initialize objects</b>; it has no return type and shares the class name.</p>",
-    "code": "class Student {\n  String name;\n  Student(String n) { // Constructor\n    this.name = n;\n  }\n}"
-  },
-  {
-    "body": "<h3>10. Final Keyword</h3><p style='color: #6a1b9a;'>Used to restrict the user: <b>final variables</b> cannot be changed, and <b>final classes</b> cannot be inherited.</p>",
-    "code": "final int SPEED_LIMIT = 90;\nfinal class Vehicle { } // Cannot be extended"
-  },
-  {
-    "body": "<h3>11. Array vs ArrayList</h3><p style='color: #dc3545;'>Arrays are <b>fixed in size</b>, whereas ArrayList is a <b>dynamic collection</b>.</p>",
-    "code": "int[] arr = new int[10];\n\nArrayList<String> list = new ArrayList<>();\nlist.add(\"Java\");\nlist.remove(0);"
-  },
-  {
-    "body": "<h3>12. Method Overloading vs Overriding</h3><p style='color: #1565c0;'><b>Overloading</b> is same name, different parameters. <b>Overriding</b> is subclass providing specific logic.</p>",
-    "code": "// Overloading\nvoid sum(int a, int b) { }\nvoid sum(int a, int b, int c) { }\n\n// Overriding\n@Override\nvoid move() { System.out.println(\"Dog runs\"); }"
+    "body": "<h3>9. Valid Anagram</h3><p style='color: #d84315;'>Sort both strings and compare them, or use a frequency map to ensure identical character counts.</p><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Java/ValidAnagram.m4a'></audio>",
+    "code": "char[] arr1 = s1.toCharArray();\nchar[] arr2 = s2.toCharArray();\nArrays.sort(arr1);\nArrays.sort(arr2);\nboolean isAnagram = Arrays.equals(arr1, arr2);"
   }
 ]
