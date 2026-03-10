@@ -82,5 +82,25 @@
   {
     "body": "<h3>Java Multi-threading: ExecutorService (The Manager)</h3><p style='color: #dc3545;'>Instead of calling friends individually, you hire a <b>Manager</b>. You give them a list of 100 tasks, and they hand them out to a <b>Thread Pool</b> (a group of friends sitting on a bench).</p>",
     "code": "ExecutorService manager = Executors.newFixedThreadPool(5);\n\nfor (int i = 0; i < 100; i++) {\n    manager.execute(() -> System.out.println(\"Task done by friend on the bench\"));\n}\nmanager.shutdown();"
+  },
+  {
+    "body": "<h3>Java Core Concepts: Abstract Classes</h3><p style='color: #dc3545;'>An <b>Abstract Class</b> is like a toy that is halfway built—a blueprint for something 'partially real.' You can't play with it by itself because it's too broad, but it can have finished parts (like breathing) and missing parts (abstract methods).</p>",
+    "code": "abstract class Bird {\n    void breath() { System.out.println(\"Inhale... Exhale...\"); } // Finished\n    abstract void sing(); // Missing part: kid must decide the sound!\n}\n\nclass Sparrow extends Bird {\n    void sing() { System.out.println(\"Chirp Chirp\"); }\n}"
+  },
+  {
+    "body": "<h3>Java Core Concepts: Interfaces</h3><p style='color: #1565c0;'>An <b>Interface</b> is a 'Power-Up Card' or a Contract. It doesn't care what you are, but you MUST know how to press the buttons. Unlike classes, a toy can have many Interfaces (Skills).</p>",
+    "code": "interface RemoteControl {\n    void buttonPress(); // Just the 'button', no machinery inside\n}\n\nclass ToyCar implements RemoteControl {\n    public void buttonPress() { System.out.println(\"Car zooms forward!\"); }\n}"
+  },
+  {
+    "body": "<h3>Java Core Concepts: The Big Comparison</h3><p style='color: #2e7d32;'><b>Abstract Class (The Parent):</b> About what something IS (A Dog is an Animal). <b>Interface (The Skill):</b> About what something CAN DO (A Dog can be 'Runnable'). You only get one parent, but as many skills as you want!</p>",
+    "code": "// One Parent\nclass Dog extends Animal implements Runnable, Serializable {\n    // Multiple Skills\n}"
+  },
+  {
+    "body": "<h3>Java Core Concepts: When to use which?</h3><p style='color: #d84315;'>Use an <b>Abstract Class</b> to share code among 'relatives' (Cars, Trucks). Use an <b>Interface</b> to give a 'Skill' to things that aren't related (A Bird and a Plane both have the 'Fly' skill, but they aren't relatives).</p>",
+    "code": "interface IFlyable { void fly(); }\n\nclass Bird implements IFlyable { public void fly() { /* wings */ } }\nclass Plane implements IFlyable { public void fly() { /* engines */ } }"
+  },
+  {
+    "body": "<h3>Java Core Concepts: Advanced Java 8 'Default' Twist</h3><p style='color: #6a1b9a;'>Interfaces got an upgrade! They can now have <b>Default Methods</b>, which is like giving the 'Power-Up Card' a little bit of built-in magic so you don't have to build every button from scratch.</p>",
+    "code": "interface PowerUp {\n    default void glow() {\n        System.out.println(\"The card is glowing with magic!\");\n    }\n}"
   }
 ]
