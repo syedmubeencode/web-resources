@@ -1,0 +1,51 @@
+[
+  {
+    "body": "<h3>1. What is the difference between JDK, JRE, and JVM?</h3><p style='color: #dc3545;'><b>JDK</b> is the development kit used to write and compile code. <b>JRE</b> is the environment that provides libraries to run the code. <b>JVM</b> is the engine that actually executes the bytecode.</p>"
+  },
+  {
+    "body": "<h3>2. Why is Java 'Platform Independent'?</h3><p style='color: #dc3545;'>Java is platform independent because of <b>Bytecode</b>. The compiler converts source code into bytecode, which can run on any system that has a JVM installed, following the 'Write Once, Run Anywhere' (WORA) principle.</p>"
+  },
+  {
+    "body": "<h3>3. What is the difference between '==' and '.equals()'?</h3><p style='color: #dc3545;'><b>'=='</b> is an operator used for reference comparison (checks if both point to the same memory location). <b>'.equals()'</b> is a method used for content comparison (checks if the values inside the objects are the same).</p>",
+    "code": "String s1 = new String(\"HELLO\");\nString s2 = new String(\"HELLO\");\n\nSystem.out.println(s1 == s2);      // false (different memory)\nSystem.out.println(s1.equals(s2)); // true (same content)"
+  },
+  {
+    "body": "<h3>4. Why are Strings immutable in Java?</h3><p style='color: #dc3545;'>Strings are immutable for <b>security, caching, and synchronization</b>. The primary reason is the <b>String Constant Pool</b>; if strings were mutable, changing one reference would accidentally change the value for all other variables pointing to that same pool location.</p>"
+  },
+  {
+    "body": "<h3>5. What is the difference between Final, Finally, and Finalize?</h3><p style='color: #dc3545;'><b>Final</b> is a keyword to restrict modification. <b>Finally</b> is a block used with try-catch to execute important code (like closing resources). <b>Finalize</b> is a method called by the Garbage Collector before destroying an object.</p>"
+  },
+  {
+    "body": "<h3>6. What is the difference between Method Overloading and Overriding?</h3><p style='color: #dc3545;'><b>Overloading</b> occurs in the same class (Compile-time polymorphism) with same name but different parameters. <b>Overriding</b> occurs in a subclass (Runtime polymorphism) where a child class provides a specific implementation for a parent method.</p>",
+    "code": "// Overloading\nvoid add(int a) { }\nvoid add(int a, int b) { }\n\n// Overriding\n@Override\nvoid move() { System.out.println(\"Running\"); }"
+  },
+  {
+    "body": "<h3>7. What is an Abstract Class vs. Interface?</h3><p style='color: #dc3545;'>An <b>Abstract Class</b> can have both abstract and concrete methods and supports 'is-a' relationships. An <b>Interface</b> (before Java 8) could only have abstract methods and supports 'can-do' relationships or multiple inheritance.</p>"
+  },
+  {
+    "body": "<h3>8. What is the 'static' keyword?</h3><p style='color: #dc3545;'>The <b>static</b> keyword means the variable or method belongs to the class itself, not to a specific object. Memory is allocated only once for static members when the class is loaded.</p>"
+  },
+  {
+    "body": "<h3>9. How does Exception Handling work in Java?</h3><p style='color: #dc3545;'>It uses <b>try-catch-finally</b> blocks to handle runtime errors. <b>Throw</b> is used to manually throw an exception, while <b>Throws</b> is used in a method signature to declare that a method might throw an exception.</p>"
+  },
+  {
+    "body": "<h3>10. What is the difference between ArrayList and LinkedList?</h3><p style='color: #dc3545;'><b>ArrayList</b> uses a dynamic array (faster for accessing data). <b>LinkedList</b> uses a doubly-linked list (faster for adding/removing data because no shifting of elements is required).</p>"
+  },
+  {
+    "body": "<h3>11. What is the 'this' and 'super' keyword?</h3><p style='color: #dc3545;'><b>'this'</b> refers to the current class instance (used to resolve naming conflicts). <b>'super'</b> refers to the immediate parent class instance (used to call parent constructors or methods).</p>",
+    "code": "class Parent { Parent() { } }\nclass Child extends Parent {\n    Child() {\n        super(); // calls Parent constructor\n    }\n}"
+  },
+  {
+    "body": "<h3>12. What is Garbage Collection?</h3><p style='color: #dc3545;'>Garbage Collection is the automatic process of <b>reclaiming heap memory</b> by destroying objects that are no longer reachable or used by the application.</p>"
+  },
+  {
+    "body": "<h3>13. What are Wrapper Classes?</h3><p style='color: #dc3545;'>Wrapper classes provide a way to use <b>primitive data types as objects</b> (e.g., Integer for int, Double for double). This is necessary for using Collections like ArrayList.</p>"
+  },
+  {
+    "body": "<h3>14. What is the difference between HashMap and Hashtable?</h3><p style='color: #dc3545;'><b>HashMap</b> is non-synchronized (faster) and allows one null key. <b>Hashtable</b> is synchronized (thread-safe, but slower) and does not allow null keys or values.</p>"
+  },
+  {
+    "body": "<h3>15. What is the 'Singleton' design pattern?</h3><p style='color: #dc3545;'>A design pattern that ensures a class has <b>only one instance</b> and provides a global point of access to it.</p>",
+    "code": "class Singleton {\n    private static Singleton instance;\n    private Singleton() { } // Private constructor\n    public static Singleton getInstance() {\n        if (instance == null) instance = new Singleton();\n        return instance;\n    }\n}"
+  }
+]
