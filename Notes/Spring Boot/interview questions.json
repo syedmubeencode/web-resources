@@ -78,5 +78,45 @@
   {
     "body": "<h3>20. Bean Scope: Singleton vs Prototype?</h3><p style='color: #6a1b9a;'><b>Singleton</b> is a 'Public Park'; everyone shares the exact same one. <b>Prototype</b> is a 'Cup of Coffee'; every time someone asks for one, they get a brand new, fresh cup just for them.</p>",
     "code": "@Scope(\"prototype\")\n@Bean\npublic Coffee getCoffee() { return new Coffee(); }"
+  },
+  {
+    "body": "<h3>1. Inversion of Control (IoC): The Remote Control</h3><p style='color: #dc3545;'>In standard Java, you are the driver (you create objects manually). With <b>IoC</b>, you are the passenger. Spring is the <b>'Remote Control'</b> or the driver—it decides when to create, configure, and manage the objects (Beans) so you don't have to.</p>",
+    "code": "// Without IoC: You 'New' the object\nEngine e = new Engine(); \n\n// With IoC: You just ask for it\n@Autowired \nEngine engine;"
+  },
+  {
+    "body": "<h3>2. Dependency Injection (DI): The IV Drip</h3><p style='color: #1565c0;'>DI is the <b>act</b> of delivering the objects. Imagine a patient (Class) needing medicine (Dependency). Instead of the patient getting up to find it, the nurse (Spring) <b>injects</b> it directly into their arm (Constructor or Field).</p>",
+    "code": "@Component\npublic class Car {\n    private final Engine engine;\n\n    // Constructor Injection (Recommended)\n    public Car(Engine engine) {\n        this.engine = engine;\n    }\n}"
+  },
+  {
+    "body": "<h3>3. Spring Bean: The Registered Employee</h3><p style='color: #2e7d32;'>A <b>Bean</b> is just a normal Java object, but it's <b>'On the Payroll.'</b> Spring knows about it, manages its lifecycle, and keeps it in the 'Office' (ApplicationContext) ready to work whenever called.</p>",
+    "code": "@Component // Tells Spring: \"This class is now a Bean!\"\npublic class BillingService { ... }"
+  },
+  {
+    "body": "<h3>4. ApplicationContext: The Factory Floor</h3><p style='color: #d84315;'>The <b>ApplicationContext</b> is the giant <b>Warehouse/Factory</b> where all Beans live. It handles the 'Hiring' (Instantiating), 'Training' (DI), and 'Firing' (Destroying) of every Bean in your application.</p>",
+    "code": "ApplicationContext context = SpringApplication.run(MyApp.class);\nMyBean bean = context.getBean(MyBean.class);"
+  },
+  {
+    "body": "<h3>5. Configuration: The Blueprint</h3><p style='color: #6a1b9a;'><b>@Configuration</b> classes are like the <b>Architect's Blueprints</b>. They tell Spring exactly how to build complex things that can't be auto-discovered, or how to set up 3rd party tools (like a Database connection).</p>",
+    "code": "@Configuration\npublic class AppConfig {\n    @Bean\n    public RestTemplate restTemplate() {\n        return new RestTemplate(); // Manual setup blueprint\n    }\n}"
+  },
+  {
+    "body": "<h3>6. Component Scanning: The Search Party</h3><p style='color: #dc3545;'><b>@ComponentScan</b> is like sending out a <b>Search Party</b>. It tells Spring, 'Go look in these folders (packages) and find any class wearing a @Component hat so we can turn them into Beans.'</p>",
+    "code": "@ComponentScan(basePackages = \"com.example.project\")\n// Usually included automatically in @SpringBootApplication"
+  },
+  {
+    "body": "<h3>7. Bean Scopes: Shared vs. Private</h3><p style='color: #1565c0;'><b>Singleton (Default):</b> A 'Public Water Fountain'—everyone drinks from the same one. <b>Prototype:</b> A 'Bottled Water'—every time you ask, you get a brand new, unopened bottle.</p>",
+    "code": "@Scope(\"prototype\")\n@Component\npublic class TaskRunner { ... }"
+  },
+  {
+    "body": "<h3>8. Spring Boot Starters: The Survival Kit</h3><p style='color: #2e7d32;'>Starters are <b>'Pre-packed Survival Kits.'</b> If you're going hiking (Building a Web App), you don't buy a compass, tent, and boots separately. You buy the 'Hiking Starter' and it has everything inside it.</p>",
+    "code": "// pom.xml\n<artifactId>spring-boot-starter-web</artifactId> \n// Includes Tomcat, Jackson, Hibernate-Validator, etc."
+  },
+  {
+    "body": "<h3>9. Auto-Configuration: The Smart Assistant</h3><p style='color: #d84315;'>It's like a <b>Smart Assistant</b> who sees you have a laptop and immediately opens the WiFi settings. If Spring Boot sees 'H2 Database' in your code, it automatically sets up an In-Memory DB for you.</p>",
+    "code": "// Triggered by @EnableAutoConfiguration\n// Checks 'META-INF/spring.factories' for rules."
+  },
+  {
+    "body": "<h3>10. Property Management: The Settings Menu</h3><p style='color: #6a1b9a;'>Using <b>application.properties</b> is like the <b>'Options Menu'</b> in a video game. You don't change the game's code to change the volume; you just change the setting in the menu.</p>",
+    "code": "// application.properties\nserver.port=9090\nspring.datasource.url=jdbc:mysql://localhost:3306/db"
   }
 ]
