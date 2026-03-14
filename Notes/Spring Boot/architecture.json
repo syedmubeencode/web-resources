@@ -1,1 +1,50 @@
-
+[
+  {
+    "body": "<h3>Spring Boot: The Magic Starter</h3><p style='color: #dc3545;'>Think of Spring Boot as a <b>'Pre-built LEGO Kit.'</b> Instead of searching for every individual brick (dependencies) and figuring out how they fit, Spring Boot gives you the whole box with an instruction manual that's already half-finished.</p>",
+    "code": "// Just one annotation to start the whole engine!\n@SpringBootApplication\npublic class MyDemoApp {\n    public static void main(String[] args) {\n        SpringApplication.run(MyDemoApp.class, args);\n    }\n}"
+  },
+  {
+    "body": "<h3>Dependency Injection: The Delivery Service</h3><p style='color: #1565c0;'>Instead of a Chef (Class) going to the market to buy vegetables (Objects), a <b>Delivery Driver (Spring)</b> just drops them on the kitchen counter. The Chef doesn't care where they came from; they just use them.</p>",
+    "code": "@Service\npublic class Chef {\n    @Autowired\n    private Vegetable delivery; // Spring 'injects' this automatically\n\n    public void cook() { \n        delivery.chop(); \n    }\n}"
+  },
+  {
+    "body": "<h3>Auto-Configuration: The Smart Home</h3><p style='color: #2e7d32;'>It's like a <b>Smart Home</b> that senses you've walked in and turns on the lights. If Spring Boot sees a 'Database' library in your bag, it automatically sets up a connection for you without you asking.</p>",
+    "code": "// No code needed! \n// Adding 'spring-boot-starter-data-jpa' to pom.xml \n// triggers Spring to auto-configure a DataSource."
+  },
+  {
+    "body": "<h3>Spring Boot Starters: The Value Meal</h3><p style='color: #d84315;'>Instead of ordering a burger, fries, and a drink separately, you order a <b>'Meal Deal.'</b> A Starter is a single dependency that bundles everything you need for a specific task (like Web or Data).</p>",
+    "code": "\n<dependency>\n    <groupId>org.springframework.boot</groupId>\n    <artifactId>spring-boot-starter-web</artifactId>\n</dependency>"
+  },
+  {
+    "body": "<h3>The Controller: The Waiter</h3><p style='color: #6a1b9a;'>The <b>Controller</b> is the Waiter at a restaurant. They take your order (HTTP Request), give it to the Kitchen (Service), and bring back your food (HTTP Response/JSON).</p>",
+    "code": "@RestController\npublic class MenuController {\n    @GetMapping(\"/pizza\")\n    public String getPizza() {\n        return \"Pepperoni Pizza\"; // Sent back to the user\n    }\n}"
+  },
+  {
+    "body": "<h3>The Service Layer: The Kitchen</h3><p style='color: #dc3545;'>This is where the <b>Cooking (Logic)</b> happens. The Waiter (Controller) shouldn't be cooking; they should just pass the request to the Chef (Service) who knows the secret recipe.</p>",
+    "code": "@Service\npublic class PizzaService {\n    public String preparePizza() {\n        // Complex logic: kneading dough, adding toppings...\n        return \"Hot Pizza\";\n    }\n}"
+  },
+  {
+    "body": "<h3>Spring Data JPA: The Librarian</h3><p style='color: #1565c0;'>Instead of writing long SQL 'letters' to the database, you talk to a <b>Librarian</b>. You just say, 'Find me the book by this ID,' and the Librarian handles the shelf-searching for you.</p>",
+    "code": "public interface BookRepository extends JpaRepository<Book, Long> {\n    // No SQL needed! Spring writes the query for you.\n    List<Book> findByAuthor(String author);\n}"
+  },
+  {
+    "body": "<h3>Bean Lifecycle: The Employee Onboarding</h3><p style='color: #2e7d32;'>A <b>Bean</b> is an object Spring manages. It has a 'Life Story': Born (Instantiated), Trained (Properties set), Working (In use), and Retired (Destroyed).</p>",
+    "code": "@Component\npublic class OfficeWorker {\n    @PostConstruct\n    public void startWork() {\n        System.out.println(\"I'm at my desk!\");\n    }\n\n    @PreDestroy\n    public void goHome() {\n        System.out.println(\"Turning off the lights...\");\n    }\n}"
+  },
+  {
+    "body": "<h3>Profiles: The Different Outfits</h3><p style='color: #d84315;'>Profiles allow your app to change behavior based on its <b>Environment</b>. Like wearing a suit for a 'Meeting' (Production) and pajamas for 'Home' (Development).</p>",
+    "code": "// application-dev.properties\nserver.port=8081\n\n// application-prod.properties\nserver.port=80"
+  },
+  {
+    "body": "<h3>Actuator: The Health Monitor</h3><p style='color: #6a1b9a;'>Actuator is like a <b>Fitness Tracker</b> for your app. It gives you real-time stats on whether the heart is beating (Health), how much energy it's using (Metrics), and what's inside its brain (Beans).</p>",
+    "code": "// Accessing health status at:\n// http://localhost:8080/actuator/health\n\n{ \"status\": \"UP\" }"
+  },
+  {
+    "body": "<h3>Spring Security: The Bouncer</h3><p style='color: #dc3545;'>The <b>Bouncer</b> stands at the door of your app. He checks your ID (Authentication) and makes sure you're allowed to enter the VIP section (Authorization).</p>",
+    "code": "@Configuration\npublic class SecurityConfig {\n    @Bean\n    public SecurityFilterChain filterChain(HttpSecurity http) {\n        return http.authorizeHttpRequests(auth -> \n            auth.requestMatchers(\"/vip/**\").hasRole(\"ADMIN\")\n        ).build();\n    }\n}"
+  },
+  {
+    "body": "<h3>AOP: The Security Camera</h3><p style='color: #1565c0;'><b>Aspect-Oriented Programming</b> is like a Security Camera. It watches your code from the outside and takes notes (Logging) or checks credentials without ever touching the actual code of your 'Bank' methods.</p>",
+    "code": "@Aspect\n@Component\npublic class LoggingAspect {\n    @Before(\"execution(* com.app.service.*.*(..))\")\n    public void logBefore() {\n        System.out.println(\"A method is about to run!\");\n    }\n}"
+  }
+]
