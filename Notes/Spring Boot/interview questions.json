@@ -1,4 +1,82 @@
-{
-  "title": "Spring Boot — Interview Questions",
-    "body": "<p>Q: What is auto-configuration? <br/> A: It configures your Spring application based on jar dependencies.</p>"
-}
+[
+  {
+    "body": "<h3>1. What is Spring Boot?</h3><p style='color: #dc3545;'>Think of it as a <b>'Self-Driving Car'</b> for Java. While traditional Spring requires you to manually shift gears and steer (XML/Config), Spring Boot handles the driving so you can just focus on the destination (Business Logic).</p>",
+    "code": "// No complex XML needed. Just start and go!\n@SpringBootApplication\npublic class Application {\n    public static void main(String[] args) {\n        SpringApplication.run(Application.class, args);\n    }\n}"
+  },
+  {
+    "body": "<h3>2. Spring vs. Spring Boot?</h3><p style='color: #1565c0;'>Spring is like a <b>box of loose LEGOs</b>; you have to find and connect everything yourself. Spring Boot is the <b>pre-assembled LEGO Castle</b> that you can customize if you want, but it's ready to play with immediately.</p>",
+    "code": "// Spring: Needs DispatcherServlet, ViewResolver, and Context config manually.\n// Spring Boot: Just add 'spring-boot-starter-web' and it's all done for you."
+  },
+  {
+    "body": "<h3>3. What does @SpringBootApplication do?</h3><p style='color: #2e7d32;'>It's a <b>'3-in-1 Combo Meal.'</b> It combines @Configuration (The Blueprint), @EnableAutoConfiguration (The Magic), and @ComponentScan (The Search Party) into one powerful stamp.</p>",
+    "code": "@SpringBootApplication \n// Is equivalent to:\n@Configuration\n@EnableAutoConfiguration\n@ComponentScan"
+  },
+  {
+    "body": "<h3>4. What are Starters?</h3><p style='color: #d84315;'>They are <b>'Curated Playlists'</b> for dependencies. Instead of picking 20 individual songs (libraries) for a party, you just play the 'Party Starter' playlist, and it includes everything you need.</p>",
+    "code": "<dependency>\n    <groupId>org.springframework.boot</groupId>\n    <artifactId>spring-boot-starter-data-jpa</artifactId>\n</dependency>"
+  },
+  {
+    "body": "<h3>5. How does Auto-configuration work?</h3><p style='color: #6a1b9a;'>It's like a <b>Smart Thermostat</b>. If it feels the room is cold (sees a Database driver in the classpath), it turns on the heater (creates a DataSource bean) automatically without you touching the dial.</p>",
+    "code": "// Spring Boot checks @ConditionalOnClass and @ConditionalOnMissingBean \n// to decide whether to create a bean for you."
+  },
+  {
+    "body": "<h3>6. What is Dependency Injection?</h3><p style='color: #dc3545;'>It's like a <b>Restaurant Delivery</b>. You (the Class) don't go to the kitchen to cook; you just sit at the table, and the waiter (Spring) brings the food (Object) to you when you need it.</p>",
+    "code": "@Service\npublic class BusinessService {\n    @Autowired\n    private Repository repo; // Spring 'delivers' this instance\n}"
+  },
+  {
+    "body": "<h3>7. @Component vs @Bean?</h3><p style='color: #1565c0;'>@Component is an <b>'Auto-Hire'</b>; Spring finds the class and hires it. @Bean is a <b>'Special Contract'</b>; you manually define how to create the object, usually for 3rd party libraries you didn't write.</p>",
+    "code": "@Component // \"I am a Spring bean, find me!\"\npublic class MyClass {}\n\n@Bean // \"Here is exactly how to make this specific object.\"\npublic MyOtherClass getOther() { return new MyOtherClass(); }"
+  },
+  {
+    "body": "<h3>8. What is the DispatcherServlet?</h3><p style='color: #2e7d32;'>The <b>Front Desk Clerk</b> of a hotel. Every guest (Request) talks to them first, and the clerk decides which room (Controller) they should go to.</p>",
+    "code": "// It's the core of Spring MVC architecture.\n// It intercepts all HTTP requests and routes them."
+  },
+  {
+    "body": "<h3>9. @RestController vs @Controller?</h3><p style='color: #d84315;'>@Controller is a <b>Librarian</b> who hands you a physical book (HTML page). @RestController is a <b>Digital Assistant</b> who just sends you the raw text/data (JSON) directly via email.</p>",
+    "code": "@RestController\n// No need for @ResponseBody on every method!\npublic class MyApi { ... }"
+  },
+  {
+    "body": "<h3>10. How to handle Profiles?</h3><p style='color: #6a1b9a;'>Like <b>different outfits</b> for different weather. You have a 'Rainy' outfit (Dev DB) and a 'Sunny' outfit (Prod DB). You just tell Spring which 'weather' it is, and it switches the outfit.</p>",
+    "code": "// Set in application.properties\nspring.profiles.active=dev\n\n@Profile(\"prod\")\n@Bean // Only created in Production!"
+  },
+  {
+    "body": "<h3>11. What is Spring Actuator?</h3><p style='color: #dc3545;'>The <b>Dashboard</b> of your car. It shows you how much gas is left (Memory), how fast you're going (Traffic), and if the engine is overheating (Health check).</p>",
+    "code": "// Just add the dependency and visit:\n// /actuator/health or /actuator/metrics"
+  },
+  {
+    "body": "<h3>12. What is @Value?</h3><p style='color: #1565c0;'>It's a <b>'Sticky Note'</b> on your fridge. Instead of hardcoding 'Milk' in your brain, you look at the note to see what the current value is, making it easy to change without 'reprogramming' yourself.</p>",
+    "code": "@Value(\"${app.name}\")\nprivate String appName; // Pulls from application.properties"
+  },
+  {
+    "body": "<h3>13. Explain Spring Data JPA.</h3><p style='color: #2e7d32;'>The <b>Universal Remote</b> for your TV. You don't need to know the complex wiring of the TV (SQL); you just press 'Channel Up' (save()) or 'Volume' (findById()) and it works.</p>",
+    "code": "public interface UserRepo extends JpaRepository<User, Long> {\n    // Magic: No implementation needed!\n}"
+  },
+  {
+    "body": "<h3>14. What is @ControllerAdvice?</h3><p style='color: #d84315;'>The <b>Safety Net</b> under a trapeze act. If any performer (Controller) falls (throws an Exception), the net catches them so the show (App) doesn't crash for the audience.</p>",
+    "code": "@ControllerAdvice\npublic class GlobalErrorHandler {\n    @ExceptionHandler(Exception.class)\n    public String handle() { return \"Something went wrong!\"; }\n}"
+  },
+  {
+    "body": "<h3>15. What are Embedded Servers?</h3><p style='color: #6a1b9a;'>It's like a <b>'Hot Pocket.'</b> You don't need a separate oven (Tomcat installed on PC); the 'oven' is built into the food itself. Just heat it up (run the JAR) and eat!</p>",
+    "code": "// Spring Boot JAR includes Tomcat/Jetty internally.\n// java -jar myapp.jar"
+  },
+  {
+    "body": "<h3>16. What is @Qualifier?</h3><p style='color: #dc3545;'>The <b>'Pointy Finger.'</b> If Spring sees two brothers (Beans) with the same name, it gets confused. @Qualifier lets you point and say, 'No, I want THAT one specifically!'</p>",
+    "code": "@Autowired\n@Qualifier(\"goldCard\")\nprivate PaymentCard card;"
+  },
+  {
+    "body": "<h3>17. How to use @Transactional?</h3><p style='color: #1565c0;'>The <b>'All-or-Nothing'</b> deal. If you're buying a house, you don't give the money unless you get the keys. If one part of the deal fails, @Transactional rewinds time like it never happened.</p>",
+    "code": "@Transactional\npublic void buyHouse() {\n    payMoney();\n    if(error) throw new RuntimeException(); // Rollback occurs!\n    receiveKeys();\n}"
+  },
+  {
+    "body": "<h3>18. What is AOP?</h3><p style='color: #2e7d32;'>The <b>'Background Music'</b> in a movie. It plays throughout the film (App) without the actors (Business Logic) having to sing it themselves. It handles 'Atmosphere' like Security or Logging.</p>",
+    "code": "@Around(\"execution(* service.*.*(..))\")\npublic void logTime(ProceedingJoinPoint joinPoint) { ... }"
+  },
+  {
+    "body": "<h3>19. What is Spring DevTools?</h3><p style='color: #d84315;'>The <b>'Instant Refresh'</b> button. Instead of restarting the whole engine every time you change a spark plug, DevTools detects the change and refreshes the app in a split second.</p>",
+    "code": "// Provides 'LiveReload' and 'Automatic Restart' during development."
+  },
+  {
+    "body": "<h3>20. Bean Scope: Singleton vs Prototype?</h3><p style='color: #6a1b9a;'><b>Singleton</b> is a 'Public Park'; everyone shares the exact same one. <b>Prototype</b> is a 'Cup of Coffee'; every time someone asks for one, they get a brand new, fresh cup just for them.</p>",
+    "code": "@Scope(\"prototype\")\n@Bean\npublic Coffee getCoffee() { return new Coffee(); }"
+  }
+]
