@@ -1,0 +1,43 @@
+[
+  {
+    "body": "<h3 style='color: #dc3545;'>The Theory: What is the Stream API?</h3><p>Introduced in Java 8, the <b>Stream API</b> is used to process collections of objects in a functional way. A stream is NOT a data structure; it is a <b>sequence of elements</b> from a source (like a List or Set) that supports aggregate operations.</p><p>Think of it as a <b>Conveyor Belt</b> in a factory: Items move along the belt, workers (Intermediate operations) transform or filter them, and at the end, the items are packed into a box (Terminal operation).</p>"
+  },
+  {
+    "body": "<h3 style='color: #dc3545;'>The Three Phases of a Stream</h3><p>Every Stream pipeline consists of three parts:</p><ul><li><b>1. Source:</b> Where the data comes from (e.g., <code>list.stream()</code>).</li><li><b>2. Intermediate Operations:</b> These transform the stream into another stream (e.g., <code>filter</code>, <code>map</code>, <code>sorted</code>). They are <b>lazy</b>—they don't execute until a terminal operation is called.</li><li><b>3. Terminal Operations:</b> These produce a result or a side-effect (e.g., <code>collect</code>, <code>forEach</code>, <code>reduce</code>, <code>count</code>). Once called, the stream is consumed and cannot be reused.</li></ul>"
+  },
+  {
+    "body": "<h3 style='color: #dc3545;'>1. What is the difference between an Intermediate and a Terminal operation?</h3><p><b>Intermediate operations</b> (like <code>filter()</code> or <code>map()</code>) return a new stream and are lazy, meaning they only set up the pipeline. <b>Terminal operations</b> (like <code>collect()</code> or <code>forEach()</code>) trigger the processing of the stream and return a non-stream result (like a List, Integer, or void).</p>",
+    "code": "List<String> names = Arrays.asList(\"Syed\", \"Mubin\", \"Java\");\n\nlong count = names.stream()          // Source\n    .filter(s -> s.startsWith(\"S\"))  // Intermediate (Lazy)\n    .count();                        // Terminal (Triggers execution)"
+  },
+  {
+    "body": "<h3 style='color: #dc3545;'>2. What do you mean by 'Lazy Evaluation' in Streams?</h3><p>Streams are lazy because intermediate operations are not performed until a terminal operation is invoked. This is highly efficient because Java can optimize the pipeline—for example, if you use <code>findFirst()</code>, it will stop processing as soon as it finds the first match, rather than filtering the entire list first.</p>"
+  },
+  {
+    "body": "<h3 style='color: #dc3545;'>3. What is the difference between map() and flatMap()?</h3><p><b>map()</b> is used for 1-to-1 transformation (converting one object into another). <b>flatMap()</b> is used for 1-to-many transformation (flattening multiple nested collections into a single stream of elements).</p>",
+    "code": "// map: [\"a\", \"b\"] -> [1, 1] (lengths)\n// flatMap: [ [1,2], [3,4] ] -> [1, 2, 3, 4]"
+  },
+  {
+    "body": "<h3 style='color: #dc3545;'>4. What is the difference between Stream and ParallelStream?</h3><p><b>Stream</b> executes operations sequentially in a single thread. <b>ParallelStream</b> divides the tasks into multiple chunks and processes them across different CPU cores using the ForkJoinPool, which can significantly speed up processing for very large datasets.</p>"
+  },
+  {
+    "body": "<h3 style='color: #dc3545;'>5. Explain the use of the Collectors class.</h3><p><b>Collectors</b> is a utility class that provides various terminal operations to gather the stream results into a final structure, such as <code>toList()</code>, <code>toSet()</code>, <code>joining()</code> (for strings), or <code>groupingBy()</code> (to categorize items like a SQL GROUP BY).</p>",
+    "code": "Map<Integer, List<String>> groups = names.stream()\n    .collect(Collectors.groupingBy(String::length));"
+  },
+  {
+    "body": "<h3 style='color: #dc3545;'>6. Can you reuse a Stream once a terminal operation is called?</h3><p>No. A stream is <b>consumed</b> once the terminal operation is completed. If you try to use it again, it will throw an <code>IllegalStateException</code>. You must create a new stream from the original source if you need to perform more operations.</p>"
+  },
+  {
+    "body": "<h3 style='color: #dc3545;'>7. What is the findAny() vs. findFirst() method?</h3><p><b>findFirst()</b> returns the very first element in the encounter order. <b>findAny()</b> returns any element from the stream, which is useful in parallel streams where getting 'any' result is faster than waiting to find the specific 'first' one.</p>"
+  },
+  {
+    "body": "<h3 style='color: #dc3545;'>8. What is the peek() method used for?</h3><p><b>peek()</b> is an intermediate operation primarily used for <b>debugging</b>. It allows you to 'look' at the elements as they flow through the pipeline without changing them.</p>",
+    "code": "list.stream()\n    .filter(e -> e.length() > 3)\n    .peek(e -> System.out.println(\"Filtered value: \" + e))\n    .map(String::toUpperCase)\n    .collect(Collectors.toList());"
+  },
+  {
+    "body": "<h3 style='color: #dc3545;'>9. What is the reduce() operation?</h3><p><b>reduce()</b> is a terminal operation used to combine all elements of a stream into a single result (like summing numbers or concatenating strings) using an accumulator function.</p>",
+    "code": "int sum = IntStream.of(1, 2, 3).reduce(0, (a, b) -> a + b);"
+  },
+  {
+    "body": "<h3 style='color: #dc3545;'>10. What is the difference between limit() and skip()?</h3><p><b>limit(n)</b> is used to reduce the size of the stream to the first 'n' elements. <b>skip(n)</b> is used to discard the first 'n' elements and process the remaining ones.</p>"
+  }
+]
