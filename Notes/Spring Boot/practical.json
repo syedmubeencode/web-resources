@@ -1,4 +1,30 @@
-{
-  "title": "Spring Boot — Practical",
-    "body": "<p>Create controllers, services, and repositories.</p>"
-}
+[
+  {
+    "body": "<h3>1. @Configuration & @Bean: The Custom Workshop</h3><p style='color: #dc3545;'>Think of this as your <b>'Custom Workshop.'</b> While Spring usually builds things automatically, sometimes you want to build a tool yourself (like a 3rd party library) and tell Spring, 'Hey, keep this in the warehouse for me!'</p>",
+    "code": "@Configuration\npublic class AppConfig {\n    @Bean\n    public RestTemplate myClient() {\n        // We manually create and return the object\n        return new RestTemplate();\n    }\n}"
+  },
+  {
+    "body": "<h3>2. @Controller & @RequestMapping: The Receptionist</h3><p style='color: #1565c0;'>The <b>@Controller</b> is the Receptionist. <b>@RequestMapping</b> is the Directory. It tells the user, 'If you want to talk to Sales, go to Desk A; if you want Support, go to Desk B.'</p>",
+    "code": "@Controller\n@RequestMapping(\"/api\")\npublic class MyWebController {\n    @GetMapping(\"/hello\")\n    public String sayHello() {\n        return \"hello-page\"; // Returns the name of an HTML file\n    }\n}"
+  },
+  {
+    "body": "<h3>3. @Qualifier: The Name Tag</h3><p style='color: #2e7d32;'>Imagine two workers (Beans) who both know how to fix a car, but one is a <b>Junior</b> and one is a <b>Senior</b>. If you just ask for a 'Worker,' Spring gets confused. <b>@Qualifier</b> is like checking their Name Tag to pick the right one.</p>",
+    "code": "@Service\n@Qualifier(\"senior\")\npublic class SeniorMechanic implements Mechanic { ... }\n\n@Component\npublic class CarShop {\n    @Autowired\n    @Qualifier(\"senior\") // Specifically asks for the senior one\n    private Mechanic mechanic;\n}"
+  },
+  {
+    "body": "<h3>4. @PathVariable vs @RequestParam: The Address vs The Package</h3><p style='color: #d84315;'><b>@PathVariable</b> is part of the <b>Address</b> (like the house number). <b>@RequestParam</b> is like a <b>Note</b> attached to the package (extra info like 'fragile' or 'color=blue').</p>",
+    "code": "// URL: /user/101?mode=dark\n@GetMapping(\"/user/{id}\")\npublic String getUser(@PathVariable(\"id\") int userId, \n                       @RequestParam(\"mode\") String viewMode) {\n    return \"User: \" + userId + \" in \" + viewMode;\n}"
+  },
+  {
+    "body": "<h3>5. @RequestBody: The JSON Mailbox</h3><p style='color: #6a1b9a;'>When someone sends you a complex package (a JSON object), <b>@RequestBody</b> tells Spring to open the box, read the contents, and automatically turn it into a Java Object you can work with.</p>",
+    "code": "@PostMapping(\"/create\")\npublic String createUser(@RequestBody User user) {\n    return \"User \" + user.getName() + \" created successfully!\";\n}"
+  },
+  {
+    "body": "<h3>6. @Primary: The Default Choice</h3><p style='color: #dc3545;'>If you have multiple workers but don't want to use a name tag every time, use <b>@Primary</b>. It’s like saying, 'If I don't specify, this is my favorite/default worker to use.'</p>",
+    "code": "@Component\n@Primary\npublic class StandardEngine implements Engine { ... }\n\n@Autowired\nprivate Engine engine; // No @Qualifier needed; picks the @Primary one!"
+  },
+  {
+    "body": "<h3>7. @ConditionalOnProperty: The Smart Switch</h3><p style='color: #1565c0;'>This is a <b>'Power Switch.'</b> The Bean is only created if a specific setting is turned 'ON' in your config file. Great for features that are still in 'Beta' or testing.</p>",
+    "code": "@Bean\n@ConditionalOnProperty(name = \"email.enabled\", havingValue = \"true\")\npublic EmailService emailService() {\n    return new EmailService();\n}"
+  }
+]
