@@ -102,5 +102,21 @@
   {
     "body": "<h3>Java Core Concepts: Advanced Java 8 'Default' Twist</h3><p style='color: #6a1b9a;'>Interfaces got an upgrade! They can now have <b>Default Methods</b>, which is like giving the 'Power-Up Card' a little bit of built-in magic so you don't have to build every button from scratch.</p>",
     "code": "interface PowerUp {\n    default void glow() {\n        System.out.println(\"The card is glowing with magic!\");\n    }\n}"
+  },
+{
+    "body": "<h3 style='color: #dc3545;'>11. How do you find the second highest number in a list?</h3><p>This is a classic logic test. By using <b>distinct()</b> to handle duplicates, <b>sorted(Comparator.reverseOrder())</b> to rank them, and <b>skip(1)</b> to bypass the maximum, you can easily access the second value.</p>",
+    "code": "Optional<Integer> secondHighest = list.stream()\n    .distinct()\n    .sorted(Comparator.reverseOrder())\n    .skip(1)\n    .findFirst();"
+  },
+  {
+    "body": "<h3 style='color: #dc3545;'>12. What is the difference between map() and flatMap()?</h3><p><b>map()</b> is for 1-to-1 transformations (e.g., String to its length). <b>flatMap()</b> is for 1-to-many transformations; it flattens a nested structure (like a List of Lists) into a single linear Stream.</p>",
+    "code": "// Flattens List<List<String>> into Stream<String>\nList<String> flat = nestedList.stream()\n    .flatMap(List::stream)\n    .collect(Collectors.toList());"
+  },
+  {
+    "body": "<h3 style='color: #dc3545;'>13. How do you group elements by a specific property?</h3><p>The <b>Collectors.groupingBy()</b> method is used to classify data into a Map. It is the go-to operation for tasks like grouping employees by department or students by grade.</p>",
+    "code": "Map<String, List<Employee>> byDept = employees.stream()\n    .collect(Collectors.groupingBy(Employee::getDepartment));"
+  },
+  {
+    "body": "<h3 style='color: #dc3545;'>14. How can you find the frequency of each element in a list?</h3><p>By combining <b>groupingBy()</b> with <b>Collectors.counting()</b>, you can create a frequency map where the key is the element and the value is its occurrence count.</p>",
+    "code": "Map<String, Long> counts = words.stream()\n    .collect(Collectors.groupingBy(w -> w, Collectors.counting()));"
   }
 ]
