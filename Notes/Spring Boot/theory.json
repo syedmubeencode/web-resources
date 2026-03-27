@@ -42,5 +42,69 @@
   {
     "body": "<h3>10. Core Spring Modules</h3><p style='color: #17a2b8;'>Spring is modular. Key modules include <b>Spring Core</b> (DI/IoC), <b>Spring AOP</b>, <b>Spring MVC</b> (Web), <b>Spring DAO/ORM</b> (Database), and <b>Spring Boot</b>.</p>",
     "code": "// You only import what you need in pom.xml\n<dependency>\n    <groupId>org.springframework.boot</groupId>\n    <artifactId>spring-boot-starter-web</artifactId>\n</dependency>"
+  },
+  {
+    "body": "<h3>Today's Focus: Spring Boot Mastery</h3><p style='color: #6610f2;'>Today is <b>Friday, March 27, 2026</b>. We are moving from the core framework into <b>Spring Boot</b>—the opinionated layer that simplifies everything.</p>",
+    "code": "// The magic starts here\n@SpringBootApplication\npublic class OmnistoreApplication {\n    public static void main(String[] args) {\n        SpringApplication.run(OmnistoreApplication.class, args);\n    }\n}"
+  },
+  {
+    "body": "<h3>1. What is Spring Boot?</h3><p style='color: #dc3545;'>Spring Boot is an extension of the Spring framework that eliminates 'boilerplate' configuration. It aims for <b>Rapid Application Development</b> by providing default 'opinions' for your project setup.</p>",
+    "code": "// No XML, no complex setup.\n// Just a POM and one Main class."
+  },
+  {
+    "body": "<h3>2. What is Auto-configuration?</h3><p style='color: #1565c0;'>Spring Boot looks at your <b>classpath</b>. If it sees `h2.jar`, it automatically configures an in-memory database. If it sees `spring-webmvc`, it sets up a DispatcherServlet. It 'guesses' what you need.</p>",
+    "code": "@EnableAutoConfiguration \n// Usually included in @SpringBootApplication"
+  },
+  {
+    "body": "<h3>3. Spring Boot Starters</h3><p style='color: #28a745;'>Starters are a set of convenient dependency descriptors. Instead of adding 10 different jars for Web development, you just add one `spring-boot-starter-web` and it pulls the rest.</p>",
+    "code": "<dependency>\n    <groupId>org.springframework.boot</groupId>\n    <artifactId>spring-boot-starter-data-jpa</artifactId>\n</dependency>"
+  },
+  {
+    "body": "<h3>4. @SpringBootApplication breakdown</h3><p style='color: #e67e22;'>This is a 'triplet' annotation. It combines <b>@Configuration</b> (tags class as a source of beans), <b>@EnableAutoConfiguration</b>, and <b>@ComponentScan</b> (looks for components in the package).</p>",
+    "code": "@SpringBootApplication \n// = @Configuration + @EnableAutoConfiguration + @ComponentScan"
+  },
+  {
+    "body": "<h3>5. Embedded Servers</h3><p style='color: #d63384;'>Unlike traditional Spring, Spring Boot packages the server (Tomcat, Jetty, or Undertow) <b>inside</b> the JAR. You don't need to install a server on your machine; you just run the JAR.</p>",
+    "code": "java -jar my-app.jar \n// Starts Tomcat on port 8080 by default"
+  },
+  {
+    "body": "<h3>6. Spring Boot Actuator</h3><p style='color: #20c997;'>A sub-project that provides 'production-ready' features. It allows you to monitor your app, check health, view metrics, and see environment variables via HTTP endpoints.</p>",
+    "code": "// Access via: /actuator/health or /actuator/metrics"
+  },
+  {
+    "body": "<h3>7. application.properties vs .yml</h3><p style='color: #fd7e14;'>Spring Boot supports both. Properties are flat key-values, while <b>YAML</b> is hierarchical and more readable for complex configurations. YAML is often preferred in modern microservices.</p>",
+    "code": "server:\n  port: 8081\nspring:\n  profiles:\n    active: dev"
+  },
+  {
+    "body": "<h3>8. Spring Boot Profiles</h3><p style='color: #007bff;'>Profiles allow you to separate parts of your application configuration and make it only available in certain environments (e.g., `application-dev.yml` vs `application-prod.yml`).</p>",
+    "code": "@Profile(\"prod\")\n@Bean\npublic DataSource dataSource() { ... }"
+  },
+  {
+    "body": "<h3>9. @RestController vs @Controller</h3><p style='color: #6c757d;'><b>@Controller</b> is for web pages (returns a View). <b>@RestController</b> is a shortcut for @Controller + @ResponseBody, used for REST APIs that return data (JSON/XML).</p>",
+    "code": "@RestController\npublic class ApiController {\n    @GetMapping(\"/data\")\n    public User get() { return new User(); }\n}"
+  },
+  {
+    "body": "<h3>10. @Value vs @ConfigurationProperties</h3><p style='color: #17a2b8;'><b>@Value</b> is good for single properties. <b>@ConfigurationProperties</b> provides 'strong typing' and allows you to map entire groups of properties to a Java object.</p>",
+    "code": "@ConfigurationProperties(prefix = \"mail\")\npublic class MailConfig { \n    private String host; \n}"
+  },
+  {
+    "body": "<h3>11. DevTools</h3><p style='color: #dc3545;'>A module that improves the development experience. It provides <b>Auto-restart</b> (restarts app when code changes) and <b>LiveReload</b> (refreshes the browser automatically).</p>",
+    "code": "<dependency>\n    <groupId>org.springframework.boot</groupId>\n    <artifactId>spring-boot-devtools</artifactId>\n</dependency>"
+  },
+  {
+    "body": "<h3>12. Exception Handling: @ControllerAdvice</h3><p style='color: #1565c0;'>Instead of try-catch blocks everywhere, you use a global class to catch exceptions across all Controllers and return a consistent Error Response.</p>",
+    "code": "@ControllerAdvice\npublic class GlobalHandler {\n    @ExceptionHandler(Exception.class)\n    public ResponseEntity handle() { ... }\n}"
+  },
+  {
+    "body": "<h3>13. Command Line Runner</h3><p style='color: #28a745;'>An interface used to indicate that a bean should run specific code <b>immediately after</b> the application context is loaded. Great for seeding test data.</p>",
+    "code": "@Bean\nCommandLineRunner init(Repo repo) {\n    return args -> repo.save(new Entity());\n}"
+  },
+  {
+    "body": "<h3>14. Customizing the Banner</h3><p style='color: #e67e22;'>Spring Boot allows you to change the ASCII art that prints on startup. Just place a `banner.txt` file in your `src/main/resources` folder.</p>",
+    "code": "// Inside banner.txt\n// CODE CAST VERSION 1.0"
+  },
+  {
+    "body": "<h3>15. Spring Boot Testing</h3><p style='color: #d63384;'><b>@SpringBootTest</b> starts the entire application context for integration tests. For faster unit tests, you can use <b>@WebMvcTest</b> or <b>@DataJpaTest</b> to only load specific layers.</p>",
+    "code": "@SpringBootTest\nclass MyTests {\n    @Test\n    void contextLoads() { }\n}"
   }
 ]
