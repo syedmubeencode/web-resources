@@ -83,5 +83,45 @@
   {
     "body": "<h3>10. Sum of Digits</h3><p style='color: #17a2b8;'>A mathematical logic question. You repeatedly use the <b>modulo operator (%)</b> to get the last digit and division (/) to remove it until the number is zero.</p>",
     "code": "int sum = 0;\nwhile (n != 0) {\n    sum += n % 10;\n    n /= 10;\n}"
+  },
+  {
+    "body": "<h3>1. Reverse a Linked List</h3><p style='color: #dc3545;'>A fundamental pointer manipulation task. You iterate through the list, changing the 'next' pointer of each node to point to its previous node instead of the next one.</p>",
+    "code": "public ListNode reverseList(ListNode head) {\n    ListNode prev = null, current = head;\n    while (current != null) {\n        ListNode next = current.next;\n        current.next = prev;\n        prev = current;\n        current = next;\n    }\n    return prev;\n}"
+  },
+  {
+    "body": "<h3>2. Detect Loop in a Linked List</h3><p style='color: #1565c0;'>Also known as <b>Floyd's Cycle-Finding Algorithm</b>. We use two pointers (slow and fast). If they ever meet, a cycle exists in the list.</p>",
+    "code": "public boolean hasCycle(ListNode head) {\n    ListNode slow = head, fast = head;\n    while (fast != null && fast.next != null) {\n        slow = slow.next;\n        fast = fast.next.next;\n        if (slow == fast) return true;\n    }\n    return false;\n}"
+  },
+  {
+    "body": "<h3>3. Kadane's Algorithm (Max Subarray Sum)</h3><p style='color: #28a745;'>Finding the contiguous subarray with the largest sum. We keep track of the current sum and reset it to zero if it becomes negative, updating the max sum along the way.</p>",
+    "code": "int maxSoFar = arr[0], currentMax = arr[0];\nfor (int i = 1; i < arr.length; i++) {\n    currentMax = Math.max(arr[i], currentMax + arr[i]);\n    maxSoFar = Math.max(maxSoFar, currentMax);\n}\nreturn maxSoFar;"
+  },
+  {
+    "body": "<h3>4. Merge Two Sorted Lists</h3><p style='color: #e67e22;'>Combining two sorted Linked Lists into one. We compare the heads of both lists and recursively (or iteratively) attach the smaller node to the result list.</p>",
+    "code": "public ListNode merge(ListNode l1, ListNode l2) {\n    if (l1 == null) return l2;\n    if (l2 == null) return l1;\n    if (l1.val < l2.val) {\n        l1.next = merge(l1.next, l2);\n        return l1;\n    } else {\n        l2.next = merge(l1, l2.next);\n        return l2;\n    }\n}"
+  },
+  {
+    "body": "<h3>5. Kth Largest Element</h3><p style='color: #d63384;'>Instead of sorting the whole array (O(n log n)), using a <b>Min-PriorityQueue</b> (Heap) allows us to find the Kth largest element in O(n log k) time.</p>",
+    "code": "PriorityQueue<Integer> minHeap = new PriorityQueue<>();\nfor (int val : nums) {\n    minHeap.add(val);\n    if (minHeap.size() > k) minHeap.poll();\n}\nreturn minHeap.peek();"
+  },
+  {
+    "body": "<h3>6. Binary Tree Level Order Traversal</h3><p style='color: #20c997;'>Visiting nodes level by level. We use a <b>Queue</b> (BFS) to store nodes at the current level before moving to their children on the next level.</p>",
+    "code": "Queue<TreeNode> queue = new LinkedList<>();\nqueue.add(root);\nwhile (!queue.isEmpty()) {\n    TreeNode node = queue.poll();\n    System.out.print(node.val + \" \");\n    if (node.left != null) queue.add(node.left);\n    if (node.right != null) queue.add(node.right);\n}"
+  },
+  {
+    "body": "<h3>7. Validate Binary Search Tree (BST)</h3><p style='color: #fd7e14;'>Checking if a tree is a valid BST. Every node must be greater than all nodes in its left subtree and smaller than all nodes in its right subtree.</p>",
+    "code": "public boolean isValidBST(TreeNode root, long min, long max) {\n    if (root == null) return true;\n    if (root.val <= min || root.val >= max) return false;\n    return isValidBST(root.left, min, root.val) && \n           isValidBST(root.right, root.val, max);\n}"
+  },
+  {
+    "body": "<h3>8. Group Anagrams</h3><p style='color: #007bff;'>Given an array of strings, group them by anagrams. We sort each string alphabetically and use that sorted version as a key in a <b>HashMap</b>.</p>",
+    "code": "Map<String, List<String>> map = new HashMap<>();\nfor (String s : strs) {\n    char[] ca = s.toCharArray();\n    Arrays.sort(ca);\n    String key = String.valueOf(ca);\n    map.computeIfAbsent(key, k -> new ArrayList<>()).add(s);\n}"
+  },
+  {
+    "body": "<h3>9. Rotate Matrix (90 Degrees)</h3><p style='color: #6c757d;'>To rotate a 2D array in-place, first <b>transpose</b> the matrix (swap rows and columns) and then reverse each row to achieve the clockwise rotation.</p>",
+    "code": "// 1. Transpose: matrix[i][j] <-> matrix[j][i]\n// 2. Reverse each row\nfor (int[] row : matrix) {\n    reverse(row);\n}"
+  },
+  {
+    "body": "<h3>10. Climbing Stairs (Dynamic Programming)</h3><p style='color: #17a2b8;'>How many ways to reach the top if you take 1 or 2 steps? This is essentially the Fibonacci problem solved using <b>memoization</b> or a simple loop.</p>",
+    "code": "int[] dp = new int[n + 1];\ndp[0] = 1; dp[1] = 1;\nfor (int i = 2; i <= n; i++) {\n    dp[i] = dp[i - 1] + dp[i - 2];\n}\nreturn dp[n];"
   }
 ]
