@@ -1,5 +1,57 @@
 [
   {
+    "body": "<h3>What is Java?</h3><p style='color: #dc3545;'>Java is a high-level, object-oriented, platform-independent language. It uses bytecode and the JVM to hide hardware complexity and make code readable and portable.</p>",
+    "code": "public class Main {\n  public static void main(String[] args) {\n    System.out.println(\"Hello, Java!\");\n  }\n}"
+  },
+  {
+    "body": "<h3>JDK, JRE, and JVM</h3><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Java/JDK.m4a'></audio><p style='color: #1565c0;'><b>JDK</b> is the toolkit for developers. <b>JRE</b> is the environment to run apps. <b>JVM</b> is the engine that executes bytecode line-by-line using an interpreter/JIT.</p>",
+    "code": "// JDK = JRE + Development Tools\n// JRE = JVM + Libraries\n// JVM = Bytecode Interpreter"
+  },
+  {
+    "body": "<h3>Compiler vs Interpreter</h3><p style='color: #28a745;'>The compiler (javac) translates source code to bytecode at once. The interpreter (in JVM) executes that bytecode line-by-line. Java uses both for performance and debugging.</p>",
+    "code": "// Step 1: javac App.java -> App.class (Compile)\n// Step 2: java App (Interpret)"
+  },
+  {
+    "body": "<h3>JIT Compiler</h3><p style='color: #6c757d;'>The Just-In-Time compiler improves performance by converting frequently used bytecode into native machine code during runtime.</p>",
+    "code": "// JIT compiles 'hot' code paths \n// into native instructions for speed."
+  },
+  {
+    "body": "<h3>Platform Independence & Bytecode</h3><p style='color: #e67e22;'>Java compiles source to platform-neutral .class files (Bytecode). Any system with a JVM can run these files, making Java 'Write Once, Run Anywhere'.</p>",
+    "code": "// Bytecode is intermediate code \n// between source and machine code."
+  },
+  {
+    "body": "<h3>OOPS Concepts</h3><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Java/Oops_concepts.m4a'></audio><p style='color: #6610f2;'><b>Encapsulation:</b> Hiding data. <b>Inheritance:</b> Code reuse. <b>Polymorphism:</b> Many shapes. <b>Abstraction:</b> Hiding internal logic.</p>",
+    "code": "class Animal { void sound() { } }\nclass Dog extends Animal { } // Inheritance"
+  },
+  {
+    "body": "<h3>Other OOPS: Relationships</h3><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Java/Other_oops_concepts.m4a'></audio><p style='color: #d63384;'><b>Association, Aggregation, and Composition:</b> These define 'has-a' relationships, ranging from loose connections to strict lifecycles.</p>",
+    "code": "class Library { \n  private List<Book> books; // Aggregation\n}"
+  },
+  {
+    "body": "<h3>Java 8 Features</h3><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Java/Java_8_features.m4a'></audio><p style='color: #007bff;'>Introduced Lambda Expressions, Stream API, Functional Interfaces, and the Optional class to simplify Java code.</p>",
+    "code": "List.of(1,2,3).stream()\n  .filter(n -> n > 1)\n  .forEach(System.out::println);"
+  },
+  {
+    "body": "<h3>Java 21 Features</h3><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Java/Java_21_features.m4a'></audio><p style='color: #20c997;'>Key updates include Virtual Threads (Project Loom), Sequenced Collections, and Record Patterns for better concurrency and syntax.</p>",
+    "code": "Thread.ofVirtual().start(() -> {\n  System.out.println(\"Virtual Thread\");\n});"
+  },
+  {
+    "body": "<h3>Memory Management</h3><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Java/Java_memory_management.m4a'></audio><p style='color: #fd7e14;'><b>Heap:</b> Stores objects (Garbage Collected). <b>Stack:</b> Stores method calls and local variables.</p>",
+    "code": "Object obj = new Object(); \n// 'obj' on Stack, 'new Object()' on Heap"
+  },
+  {
+    "body": "<h3>Apache Kafka</h3><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Kafka.m4a'></audio><p style='color: #17a2b8;'>A distributed event streaming platform used for building high-performance data pipelines and real-time streaming apps.</p>",
+    "code": "// Producer sends message to Topic\n// Consumer reads from Topic"
+  },
+  {
+    "body": "<h3>JDBC</h3><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Java/JDBC.m4a'></audio><p style='color: #6c757d;'>Java Database Connectivity (JDBC) is an API that enables Java applications to connect and interact with relational databases.</p>",
+    "code": "Connection conn = DriverManager\n  .getConnection(url, user, pass);"
+  },
+  {
+    "body": "<h3>Threads & Multithreading</h3><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Java/Threads.m4a'></audio><p style='color: #28a745;'>A thread is the smallest unit of processing. Multithreading allows concurrent execution of tasks for better CPU utilization.</p>",
+    "code": "class MyThread extends Thread {\n  public void run() { /* task */ }\n}"
+  },
+  {
     "body": "<h3>What is Java?</h3><p style='color: #dc3545;'>A high-level, object-oriented, platform-independent language. It uses bytecode and the JVM to ensure code written once runs everywhere while hiding complex hardware details.</p>",
     "code": "public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, Syed!\");\n    }\n}"
   },
