@@ -43,5 +43,45 @@
   {
     "body": "<h3>10. Count Vowels and Consonants</h3><p style='color: #17a2b8;'>Iterating through a string and using a conditional check (or Regex) to categorize each character. Tests basic string manipulation skills.</p>",
     "code": "String str = \"Java\";\nlong vowels = str.toLowerCase().chars()\n    .filter(c -> \"aeiou\".indexOf(c) != -1).count();"
+  },
+  {
+    "body": "<h3>1. First Non-Repeated Character</h3><p style='color: #dc3545;'>Finding the first character in a string that does not appear again. We use a <b>LinkedHashMap</b> to maintain the insertion order while counting frequencies.</p>",
+    "code": "public char firstNonRepeated(String str) {\n    Map<Character, Integer> counts = new LinkedHashMap<>();\n    for (char c : str.toCharArray()) {\n        counts.put(c, counts.getOrDefault(c, 0) + 1);\n    }\n    return counts.entrySet().stream()\n                 .filter(e -> e.getValue() == 1)\n                 .findFirst().get().getKey();\n}"
+  },
+  {
+    "body": "<h3>2. Find the Missing Number</h3><p style='color: #1565c0;'>In an array of 1 to n with one number missing, we find the sum of the first n natural numbers using the formula <b>n*(n+1)/2</b> and subtract the array's actual sum.</p>",
+    "code": "int n = 5; // array should be 1..5\nint[] arr = {1, 2, 4, 5};\nint expectedSum = n * (n + 1) / 2;\nint actualSum = Arrays.stream(arr).sum();\nSystem.out.println(\"Missing: \" + (expectedSum - actualSum));"
+  },
+  {
+    "body": "<h3>3. Two Sum Problem</h3><p style='color: #28a745;'>Given an array and a target, find the indices of two numbers that add up to the target. Using a <b>HashMap</b> allows us to find the complement in O(n) time.</p>",
+    "code": "Map<Integer, Integer> map = new HashMap<>();\nfor (int i = 0; i < nums.length; i++) {\n    int complement = target - nums[i];\n    if (map.containsKey(complement)) return new int[] {map.get(complement), i};\n    map.put(nums[i], i);\n}"
+  },
+  {
+    "body": "<h3>4. Binary Search</h3><p style='color: #e67e22;'>A highly efficient search algorithm for <b>sorted</b> arrays. It repeatedly divides the search interval in half, reducing time complexity to O(log n).</p>",
+    "code": "int low = 0, high = arr.length - 1;\nwhile (low <= high) {\n    int mid = low + (high - low) / 2;\n    if (arr[mid] == target) return mid;\n    if (arr[mid] < target) low = mid + 1;\n    else high = mid - 1;\n}"
+  },
+  {
+    "body": "<h3>5. Check if String contains only Digits</h3><p style='color: #d63384;'>Validating input strings. While we can use a loop, Java 8 Streams or <b>Regex</b> provide a clean, modern way to verify all characters are numeric.</p>",
+    "code": "public boolean isNumeric(String str) {\n    return str != null && str.matches(\"\\\\d+\");\n    // Or: str.chars().allMatch(Character::isDigit);\n}"
+  },
+  {
+    "body": "<h3>6. Remove Duplicates from Array</h3><p style='color: #20c997;'>Transforming an array into a collection of unique elements. The easiest way is to use a <b>LinkedHashSet</b> to remove duplicates while preserving order.</p>",
+    "code": "Integer[] arr = {1, 2, 2, 3, 4, 4};\nList<Integer> list = Arrays.asList(arr);\nSet<Integer> set = new LinkedHashSet<>(list);\n// set now contains [1, 2, 3, 4]"
+  },
+  {
+    "body": "<h3>7. Reverse an Array in Place</h3><p style='color: #fd7e14;'>To save memory, we swap elements from the start and end of the array moving toward the center, without using a temporary second array.</p>",
+    "code": "for(int i = 0; i < arr.length / 2; i++) {\n    int temp = arr[i];\n    arr[i] = arr[arr.length - i - 1];\n    arr[arr.length - i - 1] = temp;\n}"
+  },
+  {
+    "body": "<h3>8. Count Word Occurrences</h3><p style='color: #007bff;'>Splitting a string by spaces and counting how many times each word appears using a <b>HashMap</b>. Great for basic text analysis questions.</p>",
+    "code": "String[] words = str.split(\"\\\\s+\");\nMap<String, Integer> map = new HashMap<>();\nfor (String w : words) {\n    map.put(w, map.getOrDefault(w, 0) + 1);\n}"
+  },
+  {
+    "body": "<h3>9. Balanced Parentheses</h3><p style='color: #6c757d;'>Using a <b>Stack</b> to ensure every opening bracket has a matching closing bracket in the correct order. Essential for compiler logic basics.</p>",
+    "code": "Stack<Character> stack = new Stack<>();\nfor (char c : str.toCharArray()) {\n    if (c == '(') stack.push(')');\n    else if (stack.isEmpty() || stack.pop() != c) return false;\n}\nreturn stack.isEmpty();"
+  },
+  {
+    "body": "<h3>10. Sum of Digits</h3><p style='color: #17a2b8;'>A mathematical logic question. You repeatedly use the <b>modulo operator (%)</b> to get the last digit and division (/) to remove it until the number is zero.</p>",
+    "code": "int sum = 0;\nwhile (n != 0) {\n    sum += n % 10;\n    n /= 10;\n}"
   }
 ]
