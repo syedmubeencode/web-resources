@@ -42,5 +42,69 @@
   {
     "body": "<h3>10. Running Code on Startup</h3><p style='color: #17a2b8;'>The <b>CommandLineRunner</b> interface is perfect for running logic (like seeding a database or logging system status) immediately after the app starts.</p>",
     "code": "@Bean\npublic CommandLineRunner start() {\n    return args -> {\n        System.out.println(\"App is up and running!\");\n    };\n}"
+  },
+  {
+    "body": "<h3>Friday Coding Deep-Dive</h3><p style='color: #6610f2;'>Today is <b>Friday, March 27, 2026</b>. Let's explore the intermediate patterns that turn a basic Spring Boot app into a production-grade service.</p>",
+    "code": "// Environment: Spring Boot 3.x\nSystem.out.println(\"Session: Intermediate Coding Concepts\");\nSystem.out.println(\"Date: March 27, 2026\");"
+  },
+  {
+    "body": "<h3>1. Mocking Beans in Tests (@MockBean)</h3><p style='color: #dc3545;'>When writing integration tests, you often need to mock external services (like a payment gateway). <b>@MockBean</b> replaces a real bean in the Spring Context with a Mockito mock.</p>",
+    "code": "@SpringBootTest\nclass ServiceTest {\n    @MockBean\n    private PaymentClient paymentClient;\n    \n    // paymentClient is now a mock inside the Spring context\n}"
+  },
+  {
+    "body": "<h3>2. Profile-Specific Configuration</h3><p style='color: #1565c0;'>Spring Boot allows you to define different settings for different environments using the <code>application-{profile}.yml</code> naming convention. You can toggle between <b>dev</b>, <b>test</b>, and <b>prod</b> easily.</p>",
+    "code": "# application-dev.yml\nserver:\n  port: 8081\n\n# application-prod.yml\nserver:\n  port: 80"
+  },
+  {
+    "body": "<h3>3. Scheduling Tasks (@Scheduled)</h3><p style='color: #28a745;'>Used to execute tasks at fixed intervals or specific times (cron expressions). Perfect for daily reports, clearing cache, or processing retail batches.</p>",
+    "code": "@Scheduled(cron = \"0 0 * * * *\")\npublic void hourlyCleanup() {\n    // Logic runs every hour\n}"
+  },
+  {
+    "body": "<h3>4. Asynchronous Methods (@Async)</h3><p style='color: #e67e22;'>Allows methods to run in a separate background thread. The caller doesn't have to wait for the method to finish, which improves the responsiveness of your API.</p>",
+    "code": "@Async\npublic CompletableFuture<String> processData() {\n    // Long running task\n    return CompletableFuture.completedFuture(\"Done\");\n}"
+  },
+  {
+    "body": "<h3>5. Custom Actuator Health Indicators</h3><p style='color: #d63384;'>You can extend the <b>HealthIndicator</b> interface to add your own health checks (e.g., checking if an external API is reachable) to the `/actuator/health` endpoint.</p>",
+    "code": "@Component\npublic class ExternalApiHealth implements HealthIndicator {\n    @Override\n    public Health health() {\n        return Health.up().withDetail(\"API\", \"Reachable\").build();\n    }\n}"
+  },
+  {
+    "body": "<h3>6. Bean Validation (@NotBlank, @Size)</h3><p style='color: #20c997;'>Use <b>Hibernate Validator</b> annotations on your DTOs to enforce data integrity. Spring automatically checks these when a request hits your Controller.</p>",
+    "code": "public class UserDTO {\n    @NotBlank(message = \"Name is required\")\n    @Size(min = 2, max = 50)\n    private String name;\n}"
+  },
+  {
+    "body": "<h3>7. Spring Interceptors</h3><p style='color: #fd7e14;'><b>HandlerInterceptor</b> allows you to perform actions before or after a request is handled by a controller. Useful for logging, authentication checks, or adding headers.</p>",
+    "code": "public class MyInterceptor implements HandlerInterceptor {\n    @Override\n    public boolean preHandle(HttpServletRequest req, ...) {\n        // Logic before controller\n        return true;\n    }\n}"
+  },
+  {
+    "body": "<h3>8. Database Migrations (Flyway)</h3><p style='color: #007bff;'>Tools like <b>Flyway</b> or <b>Liquibase</b> manage your database schema changes. They run SQL scripts on startup to ensure your database structure matches your code.</p>",
+    "code": "// Script: V1__create_users_table.sql\nCREATE TABLE users (id INT, name VARCHAR(50));"
+  },
+  {
+    "body": "<h3>9. @ConditionalOnProperty</h3><p style='color: #6c757d;'>Used to conditionally load a bean only if a specific property is set in the configuration. This is the foundation for <b>Feature Toggles</b>.</p>",
+    "code": "@Bean\n@ConditionalOnProperty(name = \"feature.enabled\", havingValue = \"true\")\npublic MyFeature myFeature() {\n    return new MyFeature();\n}"
+  },
+  {
+    "body": "<h3>10. Enabling CORS Support</h3><p style='color: #17a2b8;'>If your front-end and back-end are on different domains, use <b>@CrossOrigin</b> to allow the browser to make requests to your Spring Boot API.</p>",
+    "code": "@CrossOrigin(origins = \"http://localhost:3000\")\n@RestController\npublic class WebController { ... }"
+  },
+  {
+    "body": "<h3>11. Lazy Initialization (@Lazy)</h3><p style='color: #dc3545;'>By default, Spring beans are eagerly initialized at startup. Using <b>@Lazy</b> delays the creation of a bean until it is actually needed, which can speed up application startup.</p>",
+    "code": "@Component\n@Lazy\npublic class HeavyBean { ... }"
+  },
+  {
+    "body": "<h3>12. Customizing the Banner</h3><p style='color: #1565c0;'>You can replace the default Spring logo at startup with custom ASCII art by placing a <b>banner.txt</b> file in the resources folder.</p>",
+    "code": "// banner.txt\n//  ____ ____ ____ ____ \n// |C|A|S|T| (Code Cast)"
+  },
+  {
+    "body": "<h3>13. Repository Testing (@DataJpaTest)</h3><p style='color: #28a745;'>A specialized test annotation that only loads the JPA components, providing an in-memory database and configured EntityManager for fast repository testing.</p>",
+    "code": "@DataJpaTest\nclass RepoTest {\n    @Autowired\n    private MyRepository repo;\n}"
+  },
+  {
+    "body": "<h3>14. Logging Levels and Logback</h3><p style='color: #e67e22;'>Spring Boot uses <b>Logback</b> by default. You can control the verbosity (TRACE, DEBUG, INFO, WARN, ERROR) for specific packages in your properties file.</p>",
+    "code": "logging:\n  level:\n    org.springframework: ERROR\n    com.myapp: DEBUG"
+  },
+  {
+    "body": "<h3>15. Graceful Shutdown</h3><p style='color: #d63384;'>Ensures that when the application stops, it finishes processing active requests before shutting down the server. This prevents data loss or broken connections.</p>",
+    "code": "server:\n  shutdown: graceful\nspring:\n  lifecycle:\n    timeout-per-shutdown-phase: 30s"
   }
 ]
