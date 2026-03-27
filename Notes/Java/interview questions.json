@@ -1,4 +1,70 @@
 {
+  {
   "title": "NotUpdated",
   "body": "<p><span style='color:#dc3545'><b>Q: What is a Thread in Java?</span></b><br/><b>Ans</b><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Java/Threads.m4a'></audio><br/>• A thread is a lightweight subprocess, the smallest unit of processing. Multithreading allows concurrent execution of two or more parts of a program.<br/><br/><span style='color:#dc3545'><b>Q: What is the role of the JVM?</span></b><br/><b>Ans</b><br/>• <span style='color:#007bff;font-weight:bold'>JVM</span> acts as a run-time engine to run Java applications. It loads, verifies, and executes code while providing a runtime environment.<br/><br/><span style='color:#dc3545'><b>Q: What are the four pillars of OOPs?</span></b><br/><b>Ans</b><br/>• The four pillars are <span style='text-decoration:underline'>Inheritance</span>, <span style='text-decoration:underline'>Polymorphism</span>, <span style='text-decoration:underline'>Encapsulation</span>, and <span style='text-decoration:underline'>Abstraction</span>.<br/><br/><span style='color:#dc3545'><b>Q: Difference between String and StringBuilder?</span></b><br/><b>Ans</b><br/>• String is <span style='color:#dc3545;font-weight:bold'>immutable</span> (cannot be changed), whereas StringBuilder is mutable and more efficient for frequent modifications.<br/><br/><span style='color:#dc3545'><b>Q: Interface vs Abstract Class?</span></b><br/><b>Ans</b><br/>• Interfaces support <span style='font-style:italic'>multiple inheritance</span> and have only abstract methods (pre-Java 8), while abstract classes can have constructors and concrete methods.<br/><br/><span style='color:#dc3545'><b>Q: What is Exception Handling?</span></b><br/><b>Ans</b><br/>• It is a mechanism to handle <span style='background-color:#fff3cd'>runtime errors</span> using try, catch, finally, throw, and throws keywords to maintain normal application flow.<br/><br/><b><span style='color:#dc3545'>Q: What is the Difference between JDK, JRE, and JVM?</span></b><br/><b>Ans</b> • JDK is the development kit containing JRE and tools; JRE provides the libraries to run applications, and JVM is the engine that actually executes the bytecode.<br/><br/><b><span style='color:#dc3545'>Q: What is the purpose of the 'static' keyword?</span></b><br/><b>Ans</b> • The <span style='color:#007bff;font-weight:bold'>static</span> keyword means the variable or method belongs to the class itself rather than an instance, allowing it to be accessed without creating an object.<br/><br/><b><span style='color:#dc3545'>Q: What is a Constructor in Java?</span></b><br/><b>Ans</b> • A constructor is a special method used to <span style='text-decoration:underline'>initialize objects</span>; it has the same name as the class and no explicit return type.<br/><br/><b><span style='color:#dc3545'>Q: What is the 'final' keyword used for?</span></b><br/><b>Ans</b> • The <span style='font-style:italic'>final</span> keyword is used to restrict the user: a final variable cannot be changed, a final method cannot be overridden, and a final class cannot be inherited.<br/><br/><b><span style='color:#dc3545'>Q: What is the difference between Array and ArrayList?</span></b><br/><b>Ans</b> • An Array is <span style='background-color:#fff3cd'>fixed in size</span>, while an ArrayList is a dynamic collection that grows and shrinks automatically as elements are added or removed.<br/><br/><b><span style='color:#dc3545'>Q: What is Method Overloading vs Overriding?</span></b><br/><b>Ans</b> • Overloading happens when multiple methods have the same name but different parameters within the <span style='font-weight:bold'>same class</span>; Overriding occurs when a subclass provides a specific implementation of a method already defined in its parent class.<br/><br/><b><span style='color:#dc3545'>Q: What is the Difference between JDK, JRE, and JVM?</span></b><br/><b>Ans</b> • JDK is the development kit containing JRE and tools; JRE provides the libraries to run applications, and JVM is the engine that actually executes the bytecode.<br/><br/><b><span style='color:#dc3545'>Q: What is the purpose of the 'static' keyword?</span></b><br/><b>Ans</b> • The <span style='color:#007bff;font-weight:bold'>static</span> keyword means the variable or method belongs to the class itself rather than an instance, allowing it to be accessed without creating an object.<br/><br/><b><span style='color:#dc3545'>Q: What is a Constructor in Java?</span></b><br/><b>Ans</b> • A constructor is a special method used to <span style='text-decoration:underline'>initialize objects</span>; it has the same name as the class and no explicit return type.<br/><br/><b><span style='color:#dc3545'>Q: What is the 'final' keyword used for?</span></b><br/><b>Ans</b> • The <span style='font-style:italic'>final</span> keyword is used to restrict the user: a final variable cannot be changed, a final method cannot be overridden, and a final class cannot be inherited.<br/><br/><b><span style='color:#dc3545'>Q: What is the difference between Array and ArrayList?</span></b><br/><b>Ans</b> • An Array is <span style='background-color:#fff3cd'>fixed in size</span>, while an ArrayList is a dynamic collection that grows and shrinks automatically as elements are added or removed.<br/><br/><b><span style='color:#dc3545'>Q: What is Method Overloading vs Overriding?</span></b><br/><b>Ans</b> • Overloading happens when multiple methods have the same name but different parameters within the <span style='font-weight:bold'>same class</span>; Overriding occurs when a subclass provides a specific implementation of a method already defined in its parent class.</p>"
+  },
+{
+    "body": "<h3>Current Date & Status</h3><p style='color: #6610f2;'>Today is <b>Friday, March 27, 2026</b>. Let's dive into the Core Java essentials for your technical review.</p>",
+    "code": "// Preparation check\nSystem.out.println(\"User: Syed\");\nSystem.out.println(\"Focus: Core Java Theory\");"
+  },
+  {
+    "body": "<h3>1. Why is Java popular?</h3><p style='color: #dc3545;'>Java's 'Write Once, Run Anywhere' (WORA) capability, robust security, automatic memory management (GC), and huge community support make it a top choice for enterprise apps.</p>",
+    "code": "// Java runs on any device with a JVM\nSystem.out.println(\"Hello World from any OS!\");"
+  },
+  {
+    "body": "<h3>2. Why is Java not 100% Object-Oriented?</h3><p style='color: #1565c0;'>Java is not purely object-oriented because it supports <b>primitive data types</b> (int, char, boolean, etc.) that are not objects. However, wrapper classes help bridge this gap.</p>",
+    "code": "int x = 10; // Primitive (Not an object)\nInteger y = Integer.valueOf(10); // Object version"
+  },
+  {
+    "body": "<h3>3. What is the 'static' keyword?</h3><p style='color: #28a745;'>The static keyword means the member belongs to the <b>class</b> itself rather than to individual instances. It helps in memory management by sharing a single copy across all objects.</p>",
+    "code": "class Counter {\n    static int count = 0; // Shared by all objects\n    Counter() { count++; }\n}"
+  },
+  {
+    "body": "<h3>4. Abstract Class vs Interface</h3><p style='color: #e67e22;'><b>Abstract Class:</b> Can have constructors and both abstract/concrete methods. <b>Interface:</b> Primarily defines a contract. Since Java 8, it can have default/static methods.</p>",
+    "code": "interface Drawable { void draw(); }\nabstract class Shape { abstract void area(); }"
+  },
+  {
+    "body": "<h3>5. final, finally, and finalize</h3><p style='color: #d63384;'><b>final:</b> Constant/Non-inheritable. <b>finally:</b> A block that always executes after try-catch. <b>finalize:</b> A method called by the GC before destroying an object (deprecated).</p>",
+    "code": "final int MAX = 100;\ntry { } finally { System.out.println(\"Always runs\"); }"
+  },
+  {
+    "body": "<h3>6. Why are Strings Immutable?</h3><p style='color: #20c997;'>Security, Synchronization, and the <b>String Constant Pool</b>. If multiple variables point to the same string, changing one shouldn't affect the others.</p>",
+    "code": "String s1 = \"Java\";\ns1.concat(\" 21\"); \nSystem.out.println(s1); // Prints \"Java\" (unchanged)"
+  },
+  {
+    "body": "<h3>7. String vs StringBuilder vs StringBuffer</h3><p style='color: #fd7e14;'><b>String:</b> Immutable. <b>StringBuilder:</b> Mutable and fast (not thread-safe). <b>StringBuffer:</b> Mutable and thread-safe (synchronized/slower).</p>",
+    "code": "StringBuilder sb = new StringBuilder(\"Hello\");\nsb.append(\" Syed\"); // Modifies the same object"
+  },
+  {
+    "body": "<h3>8. Wrapper Classes & Autoboxing</h3><p style='color: #007bff;'>Wrapper classes convert primitives into objects. <b>Autoboxing</b> is the automatic conversion the Java compiler makes between primitives and their corresponding wrapper classes.</p>",
+    "code": "ArrayList<Integer> list = new ArrayList<>();\nlist.add(5); // Autoboxing: int 5 to Integer"
+  },
+  {
+    "body": "<h3>9. Access Modifiers in Java</h3><p style='color: #6c757d;'><b>Private:</b> Class only. <b>Default:</b> Package only. <b>Protected:</b> Package + Subclasses. <b>Public:</b> Visible everywhere.</p>",
+    "code": "private String secret;\npublic String name;"
+  },
+  {
+    "body": "<h3>10. Overloading vs Overriding</h3><p style='color: #17a2b8;'><b>Overloading:</b> Same method name, different parameters (Compile-time). <b>Overriding:</b> Redefining a parent method in a child class (Run-time).</p>",
+    "code": "// Overloading: add(int, int), add(double, double)\n// Overriding: @Override public void run() { ... }"
+  },
+  {
+    "body": "<h3>11. 'this' vs 'super' Keywords</h3><p style='color: #dc3545;'><b>this:</b> Refers to the current class instance. <b>super:</b> Refers to the immediate parent class instance or constructor.</p>",
+    "code": "this.name = name; // current class variable\nsuper.eat();     // calls parent method"
+  },
+  {
+    "body": "<h3>12. Exception Hierarchy (Checked vs Unchecked)</h3><p style='color: #1565c0;'><b>Checked:</b> Handled at compile-time (IOException). <b>Unchecked:</b> Occur at runtime (NullPointerException/ArithmeticException).</p>",
+    "code": "// Unchecked\nint result = 10 / 0; // ArithmeticException"
+  },
+  {
+    "body": "<h3>13. Object Class Methods</h3><p style='color: #28a745;'>Every class in Java inherits from the <b>Object</b> class. Key methods include: toString(), equals(), hashCode(), clone(), and getClass().</p>",
+    "code": "@Override\npublic String toString() {\n    return \"User Object\";\n}"
+  },
+  {
+    "body": "<h3>14. Java Memory: Stack vs Heap</h3><p style='color: #e67e22;'><b>Stack:</b> Stores local variables and method execution frames. <b>Heap:</b> Stores all objects created using the 'new' keyword. Garbage collection happens in the Heap.</p>",
+    "code": "Person p = new Person();\n// 'p' is on Stack, actual Person object on Heap"
+  },
+  {
+    "body": "<h3>15. Constructor Overloading</h3><p style='color: #d63384;'>Having multiple constructors with the same name but different parameter lists. It allows initializing objects in different ways.</p>",
+    "code": "class User {\n    User() { }\n    User(String name) { this.name = name; }\n}"
   }
+]
