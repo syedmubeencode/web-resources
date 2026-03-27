@@ -1,5 +1,46 @@
-{
-  "title": "Spring Boot — Theory",
-    "body": "<p>Spring Boot auto-configures components and reduces boilerplate.</p>",
-    "code": "@SpringBootApplication\npublic class App {\n  public static void main(String[] args){\n    SpringApplication.run(App.class, args);\n  }\n}"
-}
+[
+  {
+    "body": "<h3>Current Date & Spring Kickoff</h3><p style='color: #6610f2;'>Today is <b>Friday, March 27, 2026</b>. Let's shift gears from Core Java to the <b>Spring Framework</b>—the backbone of modern enterprise Java applications.</p>",
+    "code": "// Spring Application Entry Point\n@SpringBootApplication\npublic class CodeCastApp {\n    public static void main(String[] args) {\n        SpringApplication.run(CodeCastApp.class, args);\n    }\n}"
+  },
+  {
+    "body": "<h3>1. What is the Spring Framework?</h3><p style='color: #dc3545;'>Spring is a lightweight, integrated framework used to build enterprise-level applications. Its core features are <b>Dependency Injection (DI)</b> and <b>Inversion of Control (IoC)</b>, which help create loosely coupled code.</p>",
+    "code": "// Spring promotes POJO-based programming\npublic class User {\n    private String name;\n    // No need to extend complex Spring classes\n}"
+  },
+  {
+    "body": "<h3>2. What is Inversion of Control (IoC)?</h3><p style='color: #1565c0;'>IoC is a design principle where the control of object creation and lifecycle is handed over to the framework (the IoC Container) instead of the developer manually using the 'new' keyword.</p>",
+    "code": "// Instead of: Service s = new Service();\n// We let Spring manage it:\n@Autowired\nprivate MyService myService;"
+  },
+  {
+    "body": "<h3>3. Dependency Injection (DI)</h3><p style='color: #28a745;'>DI is the <b>implementation</b> of IoC. It allows a class to receive its dependencies from an external source (Spring Container) rather than creating them internally.</p>",
+    "code": "// Constructor Injection (Recommended)\n@Autowired\npublic UserController(UserService service) {\n    this.service = service;\n}"
+  },
+  {
+    "body": "<h3>4. BeanFactory vs. ApplicationContext</h3><p style='color: #e67e22;'>Both are IoC containers. <b>BeanFactory</b> is basic and uses lazy loading. <b>ApplicationContext</b> is advanced, supports eager loading, AOP, and internationalization, making it the standard choice.</p>",
+    "code": "// Most modern apps use ApplicationContext\nApplicationContext context = \n    new AnnotationConfigApplicationContext(AppConfig.class);"
+  },
+  {
+    "body": "<h3>5. Spring Bean Scopes</h3><p style='color: #d63384;'><b>Singleton:</b> One instance per container (default). <b>Prototype:</b> New instance every time. Others include <b>Request</b>, <b>Session</b>, and <b>Application</b> for web apps.</p>",
+    "code": "@Bean\n@Scope(\"prototype\")\npublic MyBean myBean() {\n    return new MyBean();\n}"
+  },
+  {
+    "body": "<h3>6. What is @Autowired?</h3><p style='color: #20c997;'>This annotation tells Spring to find a matching bean in the container and 'inject' it into the field, setter, or constructor automatically.</p>",
+    "code": "@Autowired\nprivate Repository repo; // Spring 'wires' this bean here"
+  },
+  {
+    "body": "<h3>7. @Component vs @Service vs @Repository</h3><p style='color: #fd7e14;'><b>@Component:</b> Generic bean. <b>@Service:</b> Business logic layer. <b>@Repository:</b> Data access layer (with automatic exception translation). All are candidates for auto-scanning.</p>",
+    "code": "@Repository\npublic interface UserRepo extends JpaRepository<User, Long> { }"
+  },
+  {
+    "body": "<h3>8. Spring Bean Lifecycle</h3><p style='color: #007bff;'>The steps a bean goes through: Instantiation -> Populate Properties -> Aware interfaces -> <b>PostProcessors</b> -> Initialization -> Destruction.</p>",
+    "code": "@PostConstruct\npublic void init() { /* Runs after bean creation */ }\n\n@PreDestroy\npublic void cleanup() { /* Runs before destruction */ }"
+  },
+  {
+    "body": "<h3>9. What is Spring AOP?</h3><p style='color: #6c757d;'><b>Aspect-Oriented Programming</b> separates 'cross-cutting concerns' (like logging or security) from actual business logic. It uses 'Aspects' to intercept method calls.</p>",
+    "code": "@Aspect\n@Component\npublic class LoggingAspect {\n    @Before(\"execution(* com.service.*.*(..))\")\n    public void logBefore() { /* Logging logic */ }\n}"
+  },
+  {
+    "body": "<h3>10. Core Spring Modules</h3><p style='color: #17a2b8;'>Spring is modular. Key modules include <b>Spring Core</b> (DI/IoC), <b>Spring AOP</b>, <b>Spring MVC</b> (Web), <b>Spring DAO/ORM</b> (Database), and <b>Spring Boot</b>.</p>",
+    "code": "// You only import what you need in pom.xml\n<dependency>\n    <groupId>org.springframework.boot</groupId>\n    <artifactId>spring-boot-starter-web</artifactId>\n</dependency>"
+  }
+]
