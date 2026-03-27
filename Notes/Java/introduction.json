@@ -1,5 +1,41 @@
 [
   {
+    "body": "<h3>What is Java?</h3><p style='color: #dc3545;'>A high-level, object-oriented, platform-independent language. It uses bytecode and the JVM to ensure code written once runs everywhere while hiding complex hardware details.</p>",
+    "code": "public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, Syed!\");\n    }\n}"
+  },
+  {
+    "body": "<h3>JDK, JRE, and JVM</h3><p style='color: #1565c0;'><b>JDK</b> is the full developer kit (Tools + JRE). <b>JRE</b> is the environment to run apps. <b>JVM</b> is the 'mini-computer' that interprets bytecode into machine code.</p>",
+    "code": "// JDK = JRE + javac, debugger, etc.\n// JRE = JVM + Runtime Libraries\n// JVM = Executes .class files"
+  },
+  {
+    "body": "<h3>Compiler vs Interpreter</h3><p style='color: #28a745;'>The compiler (javac) translates all code at once into bytecode. The Interpreter (inside JVM) reads that bytecode line-by-line. Java uses both for a balance of speed and debugging.</p>",
+    "code": "// Step 1: javac MyFile.java (Compile to Bytecode)\n// Step 2: java MyFile (Interpret/Run via JVM)"
+  },
+  {
+    "body": "<h3>Just-In-Time (JIT) Compiler</h3><p style='color: #6c757d;'>While the regular compiler works before execution, the JIT compiler works *during* runtime. It turns frequently used bytecode into native machine code to boost performance.</p>",
+    "code": "// JIT monitors 'hot' code sections\n// It compiles them to machine code for faster execution"
+  },
+  {
+    "body": "<h3>Platform Independence & Bytecode</h3><p style='color: #e67e22;'>Java is 'Write Once, Run Anywhere.' Source code becomes Bytecode (.class), which is a neutral language that any OS can understand as long as it has a JVM.</p>",
+    "code": "// MyCode.java -> [Compiler] -> MyCode.class (Bytecode)\n// MyCode.class runs on Windows, Linux, or Mac JVMs"
+  },
+  {
+    "body": "<h3>OOPS: The Four Pillars</h3><p style='color: #6610f2;'><b>Encapsulation:</b> Locking data (Diary). <b>Inheritance:</b> Passing traits (Phone -> SmartPhone). <b>Polymorphism:</b> Many shapes. <b>Abstraction:</b> Hiding complexity (Vending machine).</p>",
+    "code": "class Phone { void call() { } }\nclass SmartPhone extends Phone { } // Inheritance\n\nPhone myPhone = new SmartPhone(); // Polymorphism"
+  },
+  {
+    "body": "<h3>Java 8 & 21 Features</h3><p style='color: #007bff;'><b>Java 8:</b> Lambdas and Streams. <b>Java 21:</b> Virtual Threads (Project Loom) for high-performance scaling and Sequenced Collections.</p>",
+    "code": "// Java 8 Lambda\nList.of(1,2,3).forEach(n -> System.out.println(n));\n\n// Java 21 Virtual Thread\nThread.ofVirtual().start(() -> System.out.println(\"Running Virtual\"));"
+  },
+  {
+    "body": "<h3>Memory: Heap vs Stack</h3><p style='color: #d63384;'><b>Heap</b> stores all objects and is cleaned by Garbage Collection. <b>Stack</b> is for short-term method execution and local references. When a method ends, its stack frame is gone.</p>",
+    "code": "Object obj = new Object(); \n// 'obj' reference is on the Stack\n// 'new Object()' is on the Heap"
+  },
+  {
+    "body": "<h3>Kafka, JDBC, and Threads</h3><p style='color: #20c997;'><b>Kafka:</b> A stream platform for data pipelines. <b>JDBC:</b> Java's way of talking to databases. <b>Threads:</b> Lightweight processes that allow multitasking.</p>",
+    "code": "Thread t = new Thread(() -> System.out.println(\"Running Thread\"));\nt.start();"
+  },
+  {
     "body": "<h3>1. Thread in Java</h3><p style='color: #dc3545;'>A thread is a lightweight subprocess, the smallest unit of processing. Multithreading allows concurrent execution.</p><button class='audio-control' onclick='playAudio(this)'>▶</button><audio class='qAudio' src='https://raw.githubusercontent.com/syedmubeencode/web-resources/main/Study/Java/Threads.m4a'></audio>",
     "code": "class MyThread extends Thread {\n  public void run() {\n    System.out.println(\"Thread is running...\");\n  }\n}\n// Usage:\nMyThread t1 = new MyThread();\nt1.start();"
   },
