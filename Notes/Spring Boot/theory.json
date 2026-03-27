@@ -106,5 +106,69 @@
   {
     "body": "<h3>15. Spring Boot Testing</h3><p style='color: #d63384;'><b>@SpringBootTest</b> starts the entire application context for integration tests. For faster unit tests, you can use <b>@WebMvcTest</b> or <b>@DataJpaTest</b> to only load specific layers.</p>",
     "code": "@SpringBootTest\nclass MyTests {\n    @Test\n    void contextLoads() { }\n}"
+  },
+  {
+    "body": "<h3>Current Date & Advanced Focus</h3><p style='color: #6610f2;'>Today is <b>Friday, March 27, 2026</b>. We are diving into the world of Data Persistence and Distributed Systems.</p>",
+    "code": "// Environment Check\nSystem.out.println(\"Topic: Advanced Spring Ecosystem\");\nSystem.out.println(\"Date: March 27, 2026\");"
+  },
+  {
+    "body": "<h3>1. What is Spring Data JPA?</h3><p style='color: #dc3545;'>It is a part of the Spring Data project that makes it easy to implement JPA-based repositories. It reduces the amount of boilerplate code required to interact with databases by using <b>Repositories</b>.</p>",
+    "code": "public interface UserRepository extends JpaRepository<User, Long> {\n    // No implementation needed for basic CRUD\n}"
+  },
+  {
+    "body": "<h3>2. Derived Query Methods</h3><p style='color: #1565c0;'>Spring Data JPA can 'parse' method names to generate SQL queries automatically. As long as you follow the naming convention, you don't need to write JPQL or SQL.</p>",
+    "code": "// Generates: SELECT * FROM users WHERE email_address = ?\nUser findByEmailAddress(String emailAddress);"
+  },
+  {
+    "body": "<h3>3. @Transactional Annotation</h3><p style='color: #28a745;'>This annotation ensures that a series of database operations are treated as a single unit. If any operation fails, the entire transaction is <b>rolled back</b> to maintain data integrity.</p>",
+    "code": "@Transactional\npublic void processOrder(Order order) {\n    inventoryRepo.update(order);\n    paymentRepo.save(order.getPayment());\n}"
+  },
+  {
+    "body": "<h3>4. The N+1 Select Problem</h3><p style='color: #e67e22;'>A performance issue where the app executes one query to fetch 'N' parent records and then 'N' additional queries to fetch child records. Solved using <b>Join Fetch</b> or Entity Graphs.</p>",
+    "code": "@Query(\"SELECT u FROM User u JOIN FETCH u.roles\")\nList<User> findAllWithRoles();"
+  },
+  {
+    "body": "<h3>5. Lazy vs Eager Loading</h3><p style='color: #d63384;'><b>Lazy:</b> Child objects are loaded only when accessed. <b>Eager:</b> Child objects are loaded immediately with the parent. Lazy loading is generally preferred to save memory.</p>",
+    "code": "@OneToMany(fetch = FetchType.LAZY)\nprivate List<Address> addresses;"
+  },
+  {
+    "body": "<h3>6. What are Microservices?</h3><p style='color: #20c997;'>An architectural style where an application is built as a collection of small, independent services. Each service runs its own process and communicates via lightweight protocols like <b>HTTP/REST</b>.</p>",
+    "code": "// Scalable, Independent, and Tech-agnostic"
+  },
+  {
+    "body": "<h3>7. Service Discovery (Eureka)</h3><p style='color: #fd7e14;'>In a microservice environment, service instances change frequently. <b>Eureka</b> acts as a phonebook where services register themselves so others can find them by name.</p>",
+    "code": "@EnableEurekaServer\n// Enables the discovery registry"
+  },
+  {
+    "body": "<h3>8. API Gateway</h3><p style='color: #007bff;'>The single entry point for all clients. It handles routing, security, rate limiting, and monitoring, protecting the internal microservices from direct external exposure.</p>",
+    "code": "// Spring Cloud Gateway routes:\n// /users/** -> USER-SERVICE\n// /orders/** -> ORDER-SERVICE"
+  },
+  {
+    "body": "<h3>9. Circuit Breaker Pattern</h3><p style='color: #6c757d;'>Prevents a failure in one service from cascading to others. If a service is down, the 'circuit' opens and returns a <b>fallback</b> response immediately instead of waiting for a timeout.</p>",
+    "code": "@CircuitBreaker(name = \"userService\", fallbackMethod = \"defaultUser\")\npublic User getUser(String id) { ... }"
+  },
+  {
+    "body": "<h3>10. Feign Client</h3><p style='color: #17a2b8;'>A declarative REST client that makes writing web service clients easier. You simply define an interface and Spring Cloud provides the implementation.</p>",
+    "code": "@FeignClient(name = \"inventory-service\")\npublic interface InventoryClient {\n    @GetMapping(\"/items/{id}\")\n    Item getItem(@PathVariable String id);\n}"
+  },
+  {
+    "body": "<h3>11. Spring Security: JWT</h3><p style='color: #dc3545;'>JSON Web Tokens (JWT) are used for stateless authentication. The server issues a signed token to the client, which the client sends back in the <b>Authorization header</b> for every request.</p>",
+    "code": "// Authorization: Bearer <token>"
+  },
+  {
+    "body": "<h3>12. @Cacheable</h3><p style='color: #1565c0;'>Allows you to cache the result of a method. If the method is called again with the same parameters, Spring returns the value from the <b>cache</b> instead of executing the method.</p>",
+    "code": "@Cacheable(\"products\")\npublic Product getProduct(Long id) { ... }"
+  },
+  {
+    "body": "<h3>13. Bean Validation (@Valid)</h3><p style='color: #28a745;'>Standard way to validate incoming data. You annotate your DTO fields with constraints like @NotNull or @Size, and Spring returns a 400 error if validation fails.</p>",
+    "code": "public ResponseEntity save(@Valid @RequestBody UserDTO user) { ... }"
+  },
+  {
+    "body": "<h3>14. RestTemplate vs WebClient</h3><p style='color: #e67e22;'><b>RestTemplate:</b> Synchronous/Blocking (older). <b>WebClient:</b> Reactive, non-blocking, and part of Spring WebFlux. WebClient is the modern recommendation.</p>",
+    "code": "webClient.get().uri(\"/url\").retrieve()\n        .bodyToMono(String.class);"
+  },
+  {
+    "body": "<h3>15. Externalized Configuration</h3><p style='color: #d63384;'>Using <b>Spring Cloud Config</b>, you can store your application settings (like DB passwords) in a central Git repository. Services fetch their config at startup.</p>",
+    "code": "spring.config.import=configserver:http://localhost:8888"
   }
 ]
