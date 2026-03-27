@@ -66,5 +66,65 @@
   {
     "body": "<h3>15. Constructor Overloading</h3><p style='color: #d63384;'>Having multiple constructors with the same name but different parameter lists. It allows initializing objects in different ways.</p>",
     "code": "class User {\n    User() { }\n    User(String name) { this.name = name; }\n}"
+  },
+  {
+    "body": "<h3>1. Difference between == and .equals()</h3><p style='color: #dc3545;'><b>==</b> is an operator that compares memory addresses (reference equality). <b>.equals()</b> is a method used to compare the actual values (content equality) inside objects.</p>",
+    "code": "String s1 = new String(\"Hello\");\nString s2 = new String(\"Hello\");\nSystem.out.println(s1 == s2);      // false\nSystem.out.println(s1.equals(s2)); // true"
+  },
+  {
+    "body": "<h3>2. The hashCode() and equals() Contract</h3><p style='color: #1565c0;'>If two objects are equal according to the <b>equals()</b> method, they must have the same <b>hashCode()</b>. This is crucial for performance in Hash-based collections like HashMap.</p>",
+    "code": "// Rule: If a.equals(b), then a.hashCode() == b.hashCode()\n// Always override both if you override one."
+  },
+  {
+    "body": "<h3>3. ArrayList vs LinkedList</h3><p style='color: #28a745;'><b>ArrayList</b> uses a dynamic array (faster for search/access). <b>LinkedList</b> uses a doubly-linked list (faster for frequent additions/removals in the middle of the list).</p>",
+    "code": "List<String> list = new ArrayList<>(); // O(1) Access\nList<String> linked = new LinkedList<>(); // O(1) Insertion"
+  },
+  {
+    "body": "<h3>4. HashMap vs HashSet</h3><p style='color: #e67e22;'><b>HashMap</b> stores data in Key-Value pairs. <b>HashSet</b> stores only unique values. Internally, HashSet uses a HashMap where the value is a dummy constant.</p>",
+    "code": "HashMap<Integer, String> map = new HashMap<>();\nHashSet<Integer> set = new HashSet<>();"
+  },
+  {
+    "body": "<h3>5. Comparable vs Comparator</h3><p style='color: #d63384;'><b>Comparable</b> provides a single 'natural' sorting sequence (compareTo). <b>Comparator</b> provides multiple 'custom' sorting sequences (compare) without modifying the original class.</p>",
+    "code": "class AgeComparator implements Comparator<User> {\n    public int compare(User u1, User u2) { return u1.age - u2.age; }\n}"
+  },
+  {
+    "body": "<h3>6. What is a Marker Interface?</h3><p style='color: #20c997;'>An interface with no methods or fields. It tells the JVM that the class implementing it has some special behavior. Examples: <b>Serializable</b>, <b>Cloneable</b>, and <b>Remote</b>.</p>",
+    "code": "public class MyData implements Serializable {\n    // No methods to implement, just a 'tag'\n}"
+  },
+  {
+    "body": "<h3>7. Can we override a static method?</h3><p style='color: #fd7e14;'>No. Static methods belong to the class, not the instance. If you define a static method with the same signature in a child class, it is called <b>Method Hiding</b>, not overriding.</p>",
+    "code": "class Parent { static void show() { } }\nclass Child extends Parent { static void show() { } } // Hiding"
+  },
+  {
+    "body": "<h3>8. throw vs throws</h3><p style='color: #007bff;'><b>throw</b> is used to explicitly throw an exception from a method. <b>throws</b> is used in the method signature to declare that a method might throw certain exceptions.</p>",
+    "code": "void check(int age) throws Exception {\n    if(age < 18) throw new Exception(\"Too young\");\n}"
+  },
+  {
+    "body": "<h3>9. Try-with-resources</h3><p style='color: #6c757d;'>Introduced in Java 7, it automatically closes resources (like files or database connections) that implement <b>AutoCloseable</b>, avoiding memory leaks.</p>",
+    "code": "try (BufferedReader br = new BufferedReader(new FileReader(\"test.txt\"))) {\n    // resource is auto-closed\n} catch (IOException e) { }"
+  },
+  {
+    "body": "<h3>10. Custom Exceptions</h3><p style='color: #17a2b8;'>You can create your own exception class by extending the <b>Exception</b> class (for checked) or <b>RuntimeException</b> (for unchecked).</p>",
+    "code": "class InvalidUserException extends Exception {\n    InvalidUserException(String s) { super(s); }\n}"
+  },
+  {
+    "body": "<h3>11. The 'transient' keyword</h3><p style='color: #dc3545;'>Used in serialization. If a variable is marked as <b>transient</b>, it will not be serialized, meaning its value will not be saved during the object-to-byte-stream conversion.</p>",
+    "code": "private transient String password; // Will not be saved"
+  },
+  {
+    "body": "<h3>12. Functional Interface (Java 8)</h3><p style='color: #1565c0;'>An interface with exactly one abstract method. It can have multiple default or static methods. It is used as the target for Lambda expressions.</p>",
+    "code": "@FunctionalInterface\ninterface MyFunc { void apply(); }"
+  },
+  {
+    "body": "<h3>13. Default and Static Methods in Interfaces</h3><p style='color: #28a745;'>Java 8 allowed interfaces to have <b>default</b> methods (for backward compatibility) and <b>static</b> methods (utility methods) that contain an actual body.</p>",
+    "code": "interface MyInterface {\n    default void log() { System.out.println(\"Logging...\"); }\n}"
+  },
+  {
+    "body": "<h3>14. Optional Class</h3><p style='color: #e67e22;'>A container object which may or may not contain a non-null value. It is used to prevent <b>NullPointerExceptions</b> and write cleaner code.</p>",
+    "code": "Optional<String> name = Optional.ofNullable(user.getName());\nname.ifPresent(System.out::println);"
+  },
+  {
+    "body": "<h3>15. What is Synchronization?</h3><p style='color: #d63384;'>A mechanism that allows only one thread to access a resource or block of code at a time. It prevents <b>Thread Interference</b> and consistency errors in multithreading.</p>",
+    "code": "synchronized(this) {\n    // Critical section\n}"
   }
 ]
