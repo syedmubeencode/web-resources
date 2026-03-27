@@ -1,5 +1,46 @@
-{
-  "title": "Spring Boot — Code Examples",
-    "body": "<p>Sample REST controller:</p>",
-    "code": "@RestController\n@RequestMapping(\"/api\")\npublic class HelloController {\n  @GetMapping(\"/hello\")\n  public String hello(){ return \"Hello from Spring Boot\"; }\n}"
-}
+[
+  {
+    "body": "<h3>Friday Coding Kickoff</h3><p style='color: #6610f2;'>Today is <b>Friday, March 27, 2026</b>. Let's look at the actual code patterns that make Spring Boot feel like magic.</p>",
+    "code": "// Happy Friday, Syed!\n@SpringBootApplication\npublic class CodeCastApplication {\n    public static void main(String[] args) {\n        SpringApplication.run(CodeCastApplication.class, args);\n    }\n}"
+  },
+  {
+    "body": "<h3>1. Creating a REST Endpoint</h3><p style='color: #dc3545;'>The bread and butter of Spring Boot. Use <b>@RestController</b> to tell Spring this class handles HTTP requests, and <b>@GetMapping</b> to map a specific URL path to a method.</p>",
+    "code": "@RestController\npublic class HelloController {\n    @GetMapping(\"/welcome\")\n    public String sayHello() {\n        return \"Welcome to Code Cast!\";\n    }\n}"
+  },
+  {
+    "body": "<h3>2. Path Variables</h3><p style='color: #1565c0;'>Used to capture dynamic values directly from the URL path. This is standard for fetching specific resources, like an item ID in a retail POS system.</p>",
+    "code": "@GetMapping(\"/products/{id}\")\npublic Product getProduct(@PathVariable Long id) {\n    return service.findById(id);\n}"
+  },
+  {
+    "body": "<h3>3. Request Parameters</h3><p style='color: #28a745;'>Captured from the query string (the part after the ? in a URL). Useful for filtering, sorting, or searching through product lists.</p>",
+    "code": "// URL: /search?name=java\n@GetMapping(\"/search\")\npublic List<Item> findItems(@RequestParam String name) {\n    return repo.findByName(name);\n}"
+  },
+  {
+    "body": "<h3>4. Handling POST Data</h3><p style='color: #e67e22;'>When sending data to the server (like a new user or order), use <b>@PostMapping</b> and <b>@RequestBody</b>. Spring automatically converts the incoming JSON into a Java object.</p>",
+    "code": "@PostMapping(\"/users\")\npublic User createUser(@RequestBody User user) {\n    return repository.save(user);\n}"
+  },
+  {
+    "body": "<h3>5. Constructor Injection</h3><p style='color: #d63384;'>The modern, recommended way to perform Dependency Injection. It makes your code easier to test and ensures required dependencies aren't null.</p>",
+    "code": "@Service\npublic class OrderService {\n    private final Repo repo;\n\n    public OrderService(Repo repo) {\n        this.repo = repo;\n    }\n}"
+  },
+  {
+    "body": "<h3>6. Reading Properties</h3><p style='color: #20c997;'>Use the <b>@Value</b> annotation to pull specific configuration values from your <code>application.properties</code> or <code>application.yml</code> file.</p>",
+    "code": "@Value(\"${app.version}\")\nprivate String version;\n\n@GetMapping(\"/version\")\npublic String getVersion() { return version; }"
+  },
+  {
+    "body": "<h3>7. Defining a Service Layer</h3><p style='color: #fd7e14;'>Keep your controllers 'thin' by putting business logic in <b>@Service</b> classes. This keeps your code clean, modular, and reusable.</p>",
+    "code": "@Service\npublic class BillingService {\n    public double calculateTax(double amount) {\n        return amount * 0.18;\n    }\n}"
+  },
+  {
+    "body": "<h3>8. Creating a Data Repository</h3><p style='color: #007bff;'>With Spring Data JPA, you don't write SQL. Just extend <b>JpaRepository</b> and Spring provides all the CRUD operations (save, delete, find) for you.</p>",
+    "code": "public interface ProductRepo extends JpaRepository<Product, Long> {\n    // Magic happens here\n}"
+  },
+  {
+    "body": "<h3>9. Global Exception Handling</h3><p style='color: #6c757d;'>Instead of messy try-catch blocks in every method, use <b>@RestControllerAdvice</b> to catch specific exceptions globally and return a clean error message.</p>",
+    "code": "@RestControllerAdvice\npublic class ErrorHandler {\n    @ExceptionHandler(ProductNotFoundException.class)\n    public String handleNotFound(ProductNotFoundException ex) {\n        return ex.getMessage();\n    }\n}"
+  },
+  {
+    "body": "<h3>10. Running Code on Startup</h3><p style='color: #17a2b8;'>The <b>CommandLineRunner</b> interface is perfect for running logic (like seeding a database or logging system status) immediately after the app starts.</p>",
+    "code": "@Bean\npublic CommandLineRunner start() {\n    return args -> {\n        System.out.println(\"App is up and running!\");\n    };\n}"
+  }
+]
